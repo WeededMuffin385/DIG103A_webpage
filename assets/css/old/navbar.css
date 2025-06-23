@@ -1,0 +1,65 @@
+.navigation_bar {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 72px;
+    box-sizing: border-box;
+
+    background-color: #4ccaf080;
+    backdrop-filter: blur(16px);
+
+    display: flex;
+
+    padding: 4px;
+    gap: 4px;
+
+    & > button {
+        all: unset;
+
+        border-radius: 4px;
+        height: 100%;
+        width: calc(72px * 2.0);
+        background-color: #f7268580;
+        backdrop-filter: blur(16px);
+
+        text-align: center;
+        
+        transition: background-color 0.3s ease;
+
+        &:hover{
+            background-color: #F72585;
+        }
+
+        &:active{
+            transition: none;
+            background-color: #B5179E;
+        }
+    }
+}
+
+/*naming is provided according to https://www.w3schools.com/css/css_rwd_mediaqueries.asp - "Typical Device Breakpoints"*/
+
+/*small devices (phone)*/
+@media (max-width: 768px) {
+    .navigation_bar {
+        & > button {
+            display: none;
+        }
+    }
+}
+
+/*medium devices (tablet)*/
+@media (max-width: 1279px) and (min-width: 769px) {
+    .navigation_bar {
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/*extra large devices (desktop)*/
+@media (min-width: 1280px) {
+    .navigation_bar {
+       
+    }
+}

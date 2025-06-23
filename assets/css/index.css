@@ -1,0 +1,311 @@
+/*
+    Color scheme (gradient from red to blue):
+
+    - #F72585 - Button
+    - #B5179E - Button Hover
+
+    - #7209B7
+    - #560BAD
+
+    - #480CA8
+    - #3A0CA3 - Background
+
+    - #3F37C9
+    - #4361EE
+
+    - #4895EF
+    - #4CC9F0 - Front Background/Font Color
+*/
+
+html, body {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    height: 100%;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    color: #4CC9F0;
+    position: relative;
+}
+
+body .navigation_bar {
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 1;
+
+    width: 100vw;
+    height: 72px;
+
+    padding: 8px;
+    gap: 8px;
+
+    background-color: #4CC9F080;
+    backdrop-filter: blur(16px);
+
+    container-type: size;
+    display: flex;
+
+    & > button, a {
+        all: unset;
+        background-color: #f7268580;
+
+        border-radius: 8px;
+        height: 100%;
+        min-width: 200cqh;
+
+        box-sizing: border-box;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 2rem;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            cursor: pointer;
+            background-color: #F72585;
+        }
+
+        &:active{
+            transition: none;
+            background-color: #B5179E;
+        }
+    }
+}
+
+body > footer {
+    height: 72px;
+}
+
+body .section {
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+
+    padding-top: 72px;
+
+    position: relative;
+
+    &.hero {
+/*         &::before{
+            content: "";
+            position: absolute;
+
+
+
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+        } */
+
+        background-image: 
+            linear-gradient(to bottom, transparent 95%, rgb(calc(256 / 4), 0, 0) 100%),
+            url("../images/crowds/raphael-schaller-zbUvPw1wUIw-unsplash.jpg");
+
+        background-position: bottom;
+        background-size: cover;
+
+        .logo_and_tagline {
+            color: #4CC9F0;
+
+            .logo {
+                & > h1 {
+                    color: transparent;
+                    background: linear-gradient(to right, #3A0CA3 0%, #F72585 55%, #4CC9F0 100%);
+                    background-clip: text;
+                }
+            }
+        }
+
+        .call_to_action {
+            position: absolute;
+            bottom: 16px;
+
+            background-color: #4CC9F080;
+            backdrop-filter: blur(16px);
+
+            border-bottom-right-radius: 16px;
+            border-top-right-radius: 16px;
+            padding: 16px;
+
+            h1, p {
+                margin: 0;
+                text-align: center;
+
+                font-size: 3rem;
+            }
+
+            #countdown {
+                display: inline-block;
+                width: 10ch;
+            }
+        }
+    }
+
+    &.lineup {
+        
+        background-image: 
+            linear-gradient(to bottom, rgb(calc(256 / 4), 0, 0) 0%, transparent 5%),
+            linear-gradient(to bottom, transparent 95%, rgb(0, calc(256 / 2), 0) 100%),
+            url("../images/crowds/aleksandr-popov-R25Q-pAUeY8-unsplash.jpg");
+    }
+
+    &.tickets {
+        background-image: 
+            linear-gradient(to bottom, rgb(0, calc(256 / 2), 0) 0%, transparent 5%),
+            linear-gradient(to bottom, transparent 95%, #6B2C47 100%),
+            url("../images/crowds/antoine-j-A_0C42zmz1Q-unsplash-2.jpg");
+    }
+
+    &.about {
+        
+        background-image:
+            linear-gradient(to bottom, #6B2C47 0%, transparent 5%),
+            linear-gradient(to bottom, transparent 95%, #0A3641 100%),
+            url("../images/crowds/pim-myten-m41k1lTzjVM-unsplash.jpg");
+    }
+
+    &.merch {
+        background-image: 
+            linear-gradient(to bottom, #0A3641 0%, transparent 5%),
+            url("../images/crowds/amir-toossi-w9WO8txR7Uk-unsplash.jpg");
+        background-position: center;
+    }
+}
+
+span {
+    &.animated_gradient {
+        color: transparent;
+        background: linear-gradient(to right, #4CC9F0, #3A0CA3, #F72585, #4CC9F0);
+        background-size: 200%;
+        background-clip: text;
+        animation: gradient_shift 2s linear infinite;
+    }
+
+    &.old_price {
+        text-decoration: line-through;
+        color: #888;
+    }
+
+    &.new_price {
+        color: #4CC9F0;
+    }
+}
+
+@keyframes gradient_shift {
+    to {
+        background-position: -200% 0%;
+    }
+}
+
+
+/*small devices (phone)*/
+@media (max-width: 768px) {
+    body .section {
+        &.hero {
+            .logo_and_tagline {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+
+                & > h1 {
+                    font-size: 3rem;
+                    margin: 0;
+                }
+
+                .logo {
+                    display: flex;
+                    justify-content: center;
+                    align-items: baseline;
+                    flex-wrap: wrap;
+
+                    & > h1 {
+                        font-size: 6rem;
+                        margin: 0;
+                    }
+
+                    & > img {
+                        height: calc(6rem * 3);
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*medium devices (tablet)*/
+@media (max-width: 1279px) and (min-width: 769px) {
+    body .section {
+        &.hero {
+            .logo_and_tagline {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+
+                & > h1 {
+                    font-size: 3rem;
+                    margin: 0;
+                }
+
+                .logo {
+                    display: flex;
+                    justify-content: center;
+                    align-items: baseline;
+                    flex-wrap: wrap;
+
+                    & > h1 {
+                        font-size: 6rem;
+                        margin: 0;
+                    }
+
+                    & > img {
+                        height: calc(6rem * 3);
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*extra large devices (desktop)*/
+@media (min-width: 1280px) {
+    body .section {
+        &.hero {
+            .logo_and_tagline {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+
+                & > h1 {
+                    font-size: 3rem;
+                    margin: 0;
+                }
+
+                .logo {
+                    display: flex;
+                    justify-content: center;
+                    align-items: baseline;
+                    flex-wrap: wrap;
+
+                    & > h1 {
+                        font-size: 6rem;
+                        margin: 0;
+                    }
+
+                    & > img {
+                        height: calc(6rem * 3);
+                    }
+                }
+            }
+        }
+    }
+}

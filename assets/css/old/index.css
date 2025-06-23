@@ -1,0 +1,194 @@
+/*
+    Color scheme (gradient from red to blue):
+
+    - #F72585 - Button
+    - #B5179E - Button Hover
+
+    - #7209B7
+    - #560BAD
+
+    - #480CA8
+    - #3A0CA3 - Background
+
+    - #3F37C9
+    - #4361EE
+
+    - #4895EF
+    - #4CC9F0 - Front Background/Font Color
+*/
+
+html, body {
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: #3A0CA3;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 36px;
+    color: #4CC9F0;
+}
+
+body .section {
+    width: 100vw;
+    height: 100vh;
+
+    &.first {
+        box-sizing: border-box;
+        padding-top: 72px;
+        background-image: url("../images/background.jpg");
+        
+        background-size: cover;
+        background-position-y: bottom;
+
+        filter: contrast(1.5);
+
+        display: flex;
+        align-items: center; /* Vertical centering */
+        justify-content: center; /* Optional: horizontal centering */
+
+        position: relative;
+
+        .call_to_action {
+            container-type: size;
+            position: absolute;
+            width: 35%;
+            height: 30%;
+
+            left: 0;
+            bottom: 16px;
+
+            border-top-right-radius: 16px;
+            border-bottom-right-radius: 16px;
+
+            background-color: #4ccaf080;
+            backdrop-filter: blur(16px);
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            text-align: center;
+
+            & > h1 {
+                margin: 8px;
+                font-size: 17.5cqh;
+                text-align: center;
+            }
+
+            & > p {
+                margin: 8px;
+                text-align: center;
+                font-size: 17.5cqh;
+                font-weight: bold;
+            }
+
+            span {
+                &.animated_gradient {
+                    color: transparent;
+                    background: linear-gradient(to right, #4CC9F0, #3A0CA3, #F72585, #4CC9F0);
+                    background-size: 200%;
+                    background-clip: text;
+                    animation: gradientShift 2s linear infinite;
+                }
+
+                &.old_price {
+                    text-decoration: line-through;
+                    color: #888;
+                }
+
+                &.new_price {
+                    color: #3A0CA3;
+                }
+            }
+        }
+
+        .outer_wrapper {
+            container-type: size;
+            display: block;
+            width: 100%;
+            height: 100%;
+
+            & > h1 {
+                font-size: 10cqh;
+                color: #F72585;
+                text-align: center;
+
+                /* typographically speaking, we don't need descents */
+                margin: 0;
+            }
+
+            .wrapper {
+                container-type: size;
+                display: flex;
+                justify-content: center;
+                align-items: baseline;
+                flex-wrap: wrap;
+
+                height: 50%;
+                width: 100%;
+
+                img {
+                    height: 100cqh;
+                }
+                
+                & > h1 {
+                    font-size: 40cqh;
+                    
+                    /* this is the way to add gradient text, according to https://stackoverflow.com/questions/8384751/css-text-gradient (user: toastrackengima)*/
+                    color: transparent;
+                    background: linear-gradient(to right, #3A0CA3 0%, #F72585 55%, #4CC9F0 100%);
+                    background-clip: text;
+                    /* end of gradient text */
+
+                    /* typographically speaking, we don't need descents */
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    &.second {
+        position: relative;
+        background-clip: padding-box;
+
+        &::before{
+            position: absolute;
+            content: "";
+            display: block;
+            background-position-y: bottom;
+            filter: contrast(1.5);
+            inset: 0; /* cover entire element */
+            background-image:
+            linear-gradient(to bottom, black 50%, transparent),
+            url('../images/background.jpg');
+            background-size: cover;
+            transform: scaleY(-1); /* flip background vertically */
+            z-index: -10; /* behind content */
+        }
+    }
+}
+
+/* for call to action title text*/
+@keyframes gradientShift {
+    to {
+        background-position: -200% 0%;
+    }
+}
+
+/*small devices (phone)*/
+@media (max-width: 768px) {
+
+}
+
+/*medium devices (tablet)*/
+@media (max-width: 1279px) and (min-width: 769px) {
+
+}
+
+/*extra large devices (desktop)*/
+@media (min-width: 1280px) {
+
+}
