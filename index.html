@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- part of adaptive design according to https://www.w3schools.com/css/css_rwd_viewport.asp-->
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-
+        
+        <title>ELEKTRIK EEL</title>
         <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">
-        <link rel="stylesheet" href="assets/css/index.css">
 
-        <title>
-            ELEKTRIK EEL
-        </title>
+        <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/css/index.css">
+        <script src="js/jquery-3.7.1.min.js"></script>
     </head>
     <body>
-        <div class="navigation_bar">
+        <!-- navbar code was adapted from: https://www.w3schools.com/howto/howto_js_topnav_responsive.asp -->
+        <div class="navigation_bar" id="navbar">
+            <button id="navbar_button"><i class="fa fa-bars" id="navbar_button_icon"></i></button>
+            
             <a href="#hero">Home</a>
             <a href="#lineup">Lineup</a>
             <a href="#tickets">Tickets</a>
@@ -40,11 +43,42 @@
         </div>
 
         <div class="section lineup" id="lineup">
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Sequi tenetur, amet asperiores iure nisi expedita quasi hic veniam? 
-                Temporibus cum, molestias numquam beatae tempora laborum modi consequatur asperiores culpa delectus.
-            </p>
+            <div class="locations">
+                <div class="elements">
+                    <div>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    </div>
+                    <div>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    </div>
+                    <div>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    </div>
+                    <div>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    </div>
+                    <div>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    </div>
+                </div>
+                <div class="title">
+                    <h1>locations</h1>
+                </div>
+            </div>
+
+
+            
+            <div class="artists">
+                <div class="elements">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Sequi tenetur, amet asperiores iure nisi expedita quasi hic veniam? 
+                    Temporibus cum, molestias numquam beatae tempora laborum modi consequatur asperiores culpa delectus.
+                </div>
+                                
+                <div class="title">
+                    <h1>artists</h1>
+                </div>
+            </div>
         </div>
         
         <div class="section tickets" id="tickets">
@@ -74,8 +108,9 @@
         <footer>
             Mikhail Zagoruiko 2025
         </footer>
-   
+
         <script src="assets/js/timer.js"></script>
+        <script src="assets/js/toggle_navigation_bar.js"></script>
         <!-- <script src="assets/js/scroll_snap.js"></script> -->
     </body>
 </html>

@@ -48,13 +48,13 @@ body .navigation_bar {
     container-type: size;
     display: flex;
 
-    & > button, a {
+    & > button, & > a {
         all: unset;
         background-color: #f7268580;
 
         border-radius: 8px;
         height: 100%;
-        min-width: 200cqh;
+        width: calc(72px * 2.0);
 
         box-sizing: border-box;
 
@@ -74,6 +74,12 @@ body .navigation_bar {
             transition: none;
             background-color: #B5179E;
         }
+    }
+
+    & > #navbar_button {
+        display: none;
+        background: none;
+        color: #F72585;
     }
 }
 
@@ -149,11 +155,78 @@ body .section {
     }
 
     &.lineup {
-        
+        justify-content: space-between;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+
         background-image: 
             linear-gradient(to bottom, rgb(calc(256 / 4), 0, 0) 0%, transparent 5%),
             linear-gradient(to bottom, transparent 95%, rgb(0, calc(256 / 2), 0) 100%),
             url("../images/crowds/aleksandr-popov-R25Q-pAUeY8-unsplash.jpg");
+
+
+        .locations, .artists {
+            display: flex;
+
+            & > .elements {
+                flex: 1;
+                display: flex;
+                white-space: nowrap;
+                width: 100vw;
+                height: 30vh;
+                background-color: #4CC9F080;
+                backdrop-filter: blur(8px);
+    
+                overflow-x: scroll;
+                scrollbar-width: none;
+            }
+
+            & > .title {
+                display: flex;
+                justify-content: center;
+                
+                & > h1 {
+                    background-color: #4CC9F080;
+                    backdrop-filter: blur(8px);
+                    padding: 8px;
+                    margin: 0;
+                }
+            }
+            text-align: center;
+        }
+
+        .locations {
+            height: 50%;
+            flex-direction: column;
+            
+            & > .elements {
+                width: 100%;
+            }
+
+            & > .title {
+                & > h1 {
+                    border-bottom-left-radius: 8px;
+                    border-bottom-right-radius: 8px;
+                }
+            }
+        }
+
+        .artists {
+            height: 40%;
+            flex-direction: column-reverse;
+
+            & > .elements {
+                width: 100%;
+            }
+
+            & > .title {
+                & > h1 {
+                    border-top-left-radius: 8px;
+                    border-top-right-radius: 8px;
+                }
+            }
+        }
     }
 
     &.tickets {
@@ -204,9 +277,68 @@ span {
     }
 }
 
+@keyframes navigation_bar_show_buttons {
+    from {
+        transform: translateX(-150%);
+    }
+
+    to {
+        transform: none;
+    }
+}
+
+@keyframes navigation_bar_hide {
+    from {
+        transform: none;
+    }
+
+    to {
+        transform: translateX(-150%);
+    }
+}
+
 
 /*small devices (phone)*/
 @media (max-width: 768px) {
+    body .navigation_bar {
+        display: flex;
+        
+        container-type: size;
+
+        & > button, a {
+            display: none;
+        }
+
+        & > #navbar_button {
+            display: flex;
+            box-sizing: border-box;
+
+            width: 56px;
+            height: 56px;
+        }
+
+        transition-duration: 0.3s;
+        transition-property: height;
+        
+        &.show {
+            flex-direction: column;
+
+            width: 100vw;
+            height: 100vh;
+
+            & > button, a {
+                animation-name: navigation_bar_show_buttons;
+                animation-duration: 0.3s;
+                animation-delay: 0.3s;
+                animation-fill-mode: backwards;
+
+                display: flex;
+                width: 100%;
+                height: 72px;
+            }
+        }
+    }
+
     body .section {
         &.hero {
             .logo_and_tagline {
@@ -242,6 +374,11 @@ span {
 
 /*medium devices (tablet)*/
 @media (max-width: 1279px) and (min-width: 769px) {
+    body .navigation_bar {
+        align-items: center;
+        justify-content: center;
+    }
+
     body .section {
         &.hero {
             .logo_and_tagline {
