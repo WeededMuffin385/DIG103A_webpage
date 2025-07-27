@@ -47,30 +47,28 @@
                 <div class="credit_card_container">
                     <div class="number">
                         <label for="credit_card_number">credit card number</label>
-                        <input type="tel" name="credit_card" inputmode="numeric" pattern="[0-9\s]{13,19}" 
-                        autocomplete="cc-number" maxlength="19" 
-                        placeholder="xxxx xxxx xxxx xxxx" required id="credit_card_number">
+                        <input type="text" name="credit_card" id="credit_card_number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx" >
                     </div>
                     <div class="expires">
                         <label for="credit_card_expires">expires</label>
-                        <input type="month" name="credit_card_expires" id="" placeholder="mm/yy">
+                        <input type="text" name="credit_card_expires" id="credit_card_expires" placeholder="mm/yy">
                     </div>
                     <div class="cvc">
                         <label for="credit_card_cvc">cvc</label>
-                        <input type="month" name="credit_card_cvc" id="" placeholder="xxx">
+                        <input type="text" name="credit_card_cvc" id="credit_card_cvc" placeholder="xxx">
                     </div>
                 </div>
 
                 <label for="address_1">address line 1</label>
-                <input type="text" name="address_1" id="">
+                <input type="text" name="address_1" id="address_1">
 
                 <label for="address_2">address line 2</label>
-                <input type="text" name="address_2" id="">
+                <input type="text" name="address_2" id="address_2">
 
                 <br>
                 <br>
                 <div class="final_container">
-                    <input type="number" name="" id="tickets_number" value="1">
+                    <input type="number" name="tickets_number" id="tickets_number" value="1">
 
                     <input type="submit" value="proceed">
 
@@ -173,16 +171,16 @@
         <div class="section tickets" id="tickets">
             <h2>Tickets</h2>
             <div class="tickets_container">
-                <dir class="ticket early_bird" id="ticket_early_bird">
+                <div class="ticket early_bird" id="ticket_early_bird">
                     <h3>Early Bird Ticket</h3>
                     <p>Secure your spot at the best price! Early Bird Tickets offer full access to all performances, exclusive merch discounts, and priority entry — all before the crowd catches on. Limited quantity available, so don’t wait!</p>
                     <button onclick="toggle_ticket_form_buy()">BUY NOW</button>
-                </dir>
-                <dir class="ticket at_the_door" id="ticket_at_the_door">
+                </div>
+                <div class="ticket at_the_door" id="ticket_at_the_door">
                     <h3>Ticket At The Door</h3>
                     <p>Missed the early bird? No worries, you can still grab a ticket at the door. Standard entry gives you full access to the event, but availability is not guaranteed. Stay in the loop for door prices and timing updates.</p>
                     <button>KEEP IN TOUCH</button>
-                </dir>
+                </div>
             </div>
         </div>
 
