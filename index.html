@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <title>ELEKTRIK EEL</title>
         <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">
 
-        <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+        <!-- Load an icon library to show a hamburger menu (bars) on small screens, https://www.w3schools.com/icons/fontawesome_icons_webapp.asp -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="assets/css/index.css">
-        <script src="js/jquery-3.7.1.min.js"></script>
+        <link rel="stylesheet" href="assets/css/lineup_container_element_dropdown.css">
+        <!-- <script src="js/jquery-3.7.1.min.js"></script> -->
     </head>
     <body>
         <!-- navbar code was adapted from: https://www.w3schools.com/howto/howto_js_topnav_responsive.asp -->
@@ -24,41 +25,112 @@
             <a href="#merch">Merch</a>
         </div>
 
+        <div class="ticket_form buy" id="buy_ticket_form">
+            <h3>Buy Tickets Now</h3>
+            <form action="buy_tickets" autocomplete="on">
+                <div class="name_container">
+                    <div>
+                        <label for="fname">first name</label>
+                        <input type="text" name="fname" id="fname">
+                    </div>
+
+                    <div>
+                        <label for="fname">last name</label>
+                        <input type="text" name="lname" id="lname">
+                    </div>
+                </div>
+
+                <label for="tickets_form_email">email</label>
+                <input type="email" name="email" id="tickets_form_email">
+
+
+                <div class="credit_card_container">
+                    <div class="number">
+                        <label for="credit_card_number">credit card number</label>
+                        <input type="tel" name="credit_card" inputmode="numeric" pattern="[0-9\s]{13,19}" 
+                        autocomplete="cc-number" maxlength="19" 
+                        placeholder="xxxx xxxx xxxx xxxx" required id="credit_card_number">
+                    </div>
+                    <div class="expires">
+                        <label for="credit_card_expires">expires</label>
+                        <input type="month" name="credit_card_expires" id="" placeholder="mm/yy">
+                    </div>
+                    <div class="cvc">
+                        <label for="credit_card_cvc">cvc</label>
+                        <input type="month" name="credit_card_cvc" id="" placeholder="xxx">
+                    </div>
+                </div>
+
+                <label for="address_1">address line 1</label>
+                <input type="text" name="address_1" id="">
+
+                <label for="address_2">address line 2</label>
+                <input type="text" name="address_2" id="">
+
+                <br>
+                <br>
+                <div class="final_container">
+                    <input type="number" name="" id="tickets_number" value="1">
+
+                    <input type="submit" value="proceed">
+
+                    <button onclick="toggle_ticket_form_buy()">cancel</button>
+                </div>
+            </form>
+        </div>
+        <div class="ticket_form reserve" id="reserve_ticket_form">
+            <h3>Buy Tickets Now</h3>
+        </div>
+
         <div class="section hero" id="hero">
             <div class="logo_and_tagline">
                 <div class="logo">
-                    <img src="assets/images/logo.svg">
+                    <img src="assets/images/logo.svg" alt="elektrik eel logo">
                     <h1>Elektrik Eel</h1>
                 </div>
-                <h1>Kicks off from Dec 2025</h1>
+                <h2>Kicks off from Dec 2025</h2>
             </div>
 
-            <div class="call_to_action">
-                <h1><span class="animated_gradient">BE THE FIRST</span></h1>
-                <h1>
-                    <span class="old_price">$159</span> <span class="new_price">$129</span> <span id="countdown">0:00:00:00</span>
-                </p>
-                <h1><span class="animated_gradient">BUY TICKETS NOW</span></h1>
+            <div class="bottom_container">
+                <div class="call_to_action">
+                    <h2><span class="animated_gradient">BE THE FIRST</span></h2>
+                    <h2>
+                        <span class="old_price">$159</span> <span class="new_price">$129</span> <span id="countdown">0:00:00:00</span>
+                    </h2>
+                    <h2><span class="animated_gradient">BUY TICKETS NOW</span></h2>
+                </div>
+                
+                <div class="list_of_genres" id="genres_list">
+                    <h2>Acid House</h2>
+                    <h2>Chicago House</h2>
+                    <h2>Deep House</h2>
+                    <h2>Tribal House</h2>
+                    <h2>Dark Electro</h2>
+                    <h2>Industrial</h2>
+                </div>
             </div>
         </div>
 
         <div class="section lineup" id="lineup">
-            <div class="locations">
-                <div class="elements">
+            <div class="lineup_container_outer locations">
+                <div class="lineup_container" id="locations_lineup">
                     <div>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        <img src="assets/images/nightclubs/61-the-family-brisbane-large.jpg" alt="">
+                        <h2>
+                            Dec 19th: The Family, Fortitude Valley
+                        </h2>
                     </div>
                     <div>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        <img src="assets/images/nightclubs/sash-by-day-sydney.jpeg" alt="">
+                        <h2>
+                            Dec 20th: S.A.S.H., CBD
+                        </h2>
                     </div>
                     <div>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    </div>
-                    <div>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    </div>
-                    <div>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        <img src="assets/images/nightclubs/chiladelphia-new-guernica-melbourne.jpg" alt="">
+                        <h2>
+                            Dec 21th: New Guernica, CBD
+                        </h2>
                     </div>
                 </div>
                 <div class="title">
@@ -68,11 +140,28 @@
 
 
             
-            <div class="artists">
-                <div class="elements">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Sequi tenetur, amet asperiores iure nisi expedita quasi hic veniam? 
-                    Temporibus cum, molestias numquam beatae tempora laborum modi consequatur asperiores culpa delectus.
+            <div class="lineup_container_outer artists">
+                <div class="lineup_container" id="artists_lineup">
+                    <div>
+                        <img src="assets/images/artists/Oscar_Mulero.jpg" alt="">
+                        <h2>Oscar Mulero</h2>
+                    </div>
+                    <div>
+                        <img src="assets/images/artists/richie-hawtin-press-photo.jpg" alt="">
+                        <h2>Richie Hawtin</h2>
+                    </div>
+                    <div>
+                        <img src="assets/images/artists/Robert_Hood.jpg" alt="">
+                        <h2>Robert Hood</h2>
+                    </div>
+                    <div>
+                        <img src="assets/images/artists/Robah_Whrume.jpg" alt="">
+                        <h2>Robah Whurme</h2>
+                    </div>
+                    <div>
+                        <img src="assets/images/artists/Surgeon.jpg" alt="">
+                        <h2>Surgeon</h2>
+                    </div>
                 </div>
                                 
                 <div class="title">
@@ -82,14 +171,23 @@
         </div>
         
         <div class="section tickets" id="tickets">
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Sequi tenetur, amet asperiores iure nisi expedita quasi hic veniam? 
-                Temporibus cum, molestias numquam beatae tempora laborum modi consequatur asperiores culpa delectus.
-            </p>
+            <h2>Tickets</h2>
+            <div class="tickets_container">
+                <dir class="ticket early_bird" id="ticket_early_bird">
+                    <h3>Early Bird Ticket</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam nihil reiciendis in libero unde maiores et dolores quasi, saepe illum architecto possimus ducimus placeat, vero non officiis facere fuga eum.</p>
+                    <button onclick="toggle_ticket_form_buy()">BUY NOW</button>
+                </dir>
+                <dir class="ticket at_the_door" id="ticket_at_the_door">
+                    <h3>Ticket At The Door</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci culpa nam facere atque! Modi, eligendi consequuntur eveniet tempora expedita, ex facilis odio neque itaque praesentium in eaque ipsum quo sequi?</p>
+                    <button>KEEP IN TOUCH</button>
+                </dir>
+            </div>
         </div>
 
         <div class="section about" id="about">
+            <h2>About</h2>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                 Sequi tenetur, amet asperiores iure nisi expedita quasi hic veniam? 
@@ -98,6 +196,7 @@
         </div>
 
         <div class="section merch" id="merch">
+            <h2>Merch</h2>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                 Sequi tenetur, amet asperiores iure nisi expedita quasi hic veniam? 
@@ -106,11 +205,22 @@
         </div>
 
         <footer>
-            Mikhail Zagoruiko 2025
+            <h2 class="desktop">Copyright © 2025 Mikhail Zagoruiko</h2>
+            <h2 class="tablet">© 2025 M. Zagoruiko</h2>
+            <h2 class="mobile">© 2025 M. Zagoruiko</h2>
+            <div class="icons">
+                <img src="assets/images/icons/linkedin-square-svgrepo-com.svg" alt="">
+                <img src="assets/images/icons/github-square-svgrepo-com.svg" alt="">
+                <img src="assets/images/icons/facebook-square-svgrepo-com.svg" alt="">
+                <img src="assets/images/icons/instagram-svgrepo-com.svg" alt="">
+            </div>
         </footer>
 
         <script src="assets/js/timer.js"></script>
         <script src="assets/js/toggle_navigation_bar.js"></script>
+        <script src="assets/js/toggle_ticket_form.js"></script>
+        <script src="assets/js/genres_list_autoscroll.js"></script>
+        <script src="assets/js/lineup_container_element_dropdown.js"></script>
         <!-- <script src="assets/js/scroll_snap.js"></script> -->
     </body>
 </html>

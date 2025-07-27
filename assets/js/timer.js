@@ -1,5 +1,6 @@
 // now
 const now = new Date();
+
 // beginning of the next day (tomorrow at 00:00:00)
 const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
 

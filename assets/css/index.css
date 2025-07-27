@@ -17,6 +17,10 @@
     - #4CC9F0 - Front Background/Font Color
 */
 
+* {
+    box-sizing: border-box;
+}
+
 html, body {
     scroll-behavior: smooth;
     margin: 0;
@@ -31,10 +35,30 @@ html, body {
     position: relative;
 }
 
-body .navigation_bar {
-    box-sizing: border-box;
+button, a, input[type="submit"] {
+    all: unset;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #f7268580;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        cursor: pointer;
+        background-color: #F72585;
+    }
+
+    &:active{
+        transition: none;
+        background-color: #B5179E;
+    }
+}
+
+body > .navigation_bar {
     position: fixed;
-    z-index: 1;
+    z-index: 10;
 
     width: 100vw;
     height: 72px;
@@ -49,31 +73,10 @@ body .navigation_bar {
     display: flex;
 
     & > button, & > a {
-        all: unset;
-        background-color: #f7268580;
-
         border-radius: 8px;
         height: 100%;
         width: calc(72px * 2.0);
-
-        box-sizing: border-box;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
         font-size: 2rem;
-        transition: background-color 0.3s ease;
-
-        &:hover {
-            cursor: pointer;
-            background-color: #F72585;
-        }
-
-        &:active{
-            transition: none;
-            background-color: #B5179E;
-        }
     }
 
     & > #navbar_button {
@@ -83,12 +86,137 @@ body .navigation_bar {
     }
 }
 
-body > footer {
-    height: 72px;
+body > .ticket_form {
+    position: fixed;
+
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+
+    z-index: 50;
+
+    min-width: 30vw;
+    min-height: 50vh;
+
+    background-color: #F72585;
+
+    padding: 16px;
+    border-radius: 16px;
+
+    font-size: 2rem;
+
+    button, a, input[type="submit"] {
+        border: 4px solid #4CC9F0;
+        border-radius: 8px;
+        margin: auto;
+        text-align: center;
+    }
+
+    & > h3 {
+        text-align: center;
+        margin: 0;
+        margin-bottom: 16px;
+    }
+
+    & .name_container {
+        width: 100%;
+        display: flex;
+        gap: 16px;
+
+        & > div {
+            width: 50%;
+        }
+    }
+
+    & .credit_card_container {
+        width: 100%;
+        display: flex;
+        gap: 16px;
+        & > .number {
+            width: 50%;
+        }
+
+        & > .expires {
+            width: 35%;
+        }
+
+        & > .cvc {
+            width: 15%;
+        }
+    }
+
+    & .final_container {
+        display: flex;
+        gap: 16px;
+
+        & > #tickets_number {
+            width: 25%;
+            text-align: center;
+        }
+
+        & > button, & > a, & > input[type="submit"] {
+            width: 65%;
+        }
+    }
+
+    & input {
+        font-size: inherit;
+
+        width: 100%;
+        border-radius: 8px;
+        border: none;
+    }
+
+    &.buy {
+        display: none;
+    }
+
+    &.reserve {
+        display: none;
+    }
 }
 
-body .section {
-    box-sizing: border-box;
+body > #buy_ticket_form {
+    position: fixed;
+    margin: auto;
+}
+
+body > #reserve_ticket_form {
+    position: fixed;
+    margin: auto;
+}
+
+body > footer {
+    height: 72px;
+    container-type: size;
+
+    display: flex;
+    justify-content: space-between;
+
+    background-color: #4CC9F0;
+
+    & > h2 {
+        color: #F72585;
+        margin: 0;
+        font-size: 75cqh;
+        display: flex;
+        align-items: center;
+    }
+
+    & > .icons {
+        display: flex;
+
+        & > img {
+            height: 100cqh;
+            width: 100cqh;
+
+            /* color generation is done using https://codepen.io/sosuke/pen/Pjoqqp */
+            filter: invert(24%) sepia(64%) saturate(3331%) hue-rotate(316deg) brightness(99%) contrast(97%);
+        }
+    }
+}
+
+body > .section {
     width: 100vw;
     height: 100vh;
     background-size: cover;
@@ -98,18 +226,14 @@ body .section {
 
     position: relative;
 
+    & > h2 {
+        font-size: 3rem;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
     &.hero {
-/*         &::before{
-            content: "";
-            position: absolute;
-
-
-
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-        } */
-
         background-image: 
             linear-gradient(to bottom, transparent 95%, rgb(calc(256 / 4), 0, 0) 100%),
             url("../images/crowds/raphael-schaller-zbUvPw1wUIw-unsplash.jpg");
@@ -125,31 +249,64 @@ body .section {
                     color: transparent;
                     background: linear-gradient(to right, #3A0CA3 0%, #F72585 55%, #4CC9F0 100%);
                     background-clip: text;
+                    text-align: center;
                 }
+            }
+
+            h2 {
+                text-align: center;
             }
         }
 
-        .call_to_action {
-            position: absolute;
+        & > .bottom_container {
+            display: flex;
+            justify-content: space-between;
             bottom: 16px;
+            height: 25vh;
+            width: 100vw;
+            position: absolute;
 
-            background-color: #4CC9F080;
-            backdrop-filter: blur(16px);
+            .call_to_action, .list_of_genres {
+                background-color: #4CC9F080;
+                backdrop-filter: blur(16px);
 
-            border-bottom-right-radius: 16px;
-            border-top-right-radius: 16px;
-            padding: 16px;
 
-            h1, p {
-                margin: 0;
-                text-align: center;
+                padding: 16px;
 
-                font-size: 3rem;
+                h2, p {
+                    margin: 0;
+                    text-align: center;
+
+                    font-size: 3rem;
+                }
+
+                #countdown {
+                    display: inline-block;
+                    width: 10ch;
+                }
             }
 
-            #countdown {
-                display: inline-block;
-                width: 10ch;
+            .call_to_action {
+                border-bottom-right-radius: 16px;
+                border-top-right-radius: 16px;
+            }
+
+            .list_of_genres {
+                mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+                padding: 0;
+                border-bottom-left-radius: 16px;
+                border-top-left-radius: 16px;
+
+                overflow-y: scroll;
+                scrollbar-width: none;
+
+                h2 {
+                    text-align: center;
+                    background-color: aqua;
+                    margin: 8px;
+                    padding: 8px;
+                    border-radius: 16px;
+                }
             }
         }
     }
@@ -158,7 +315,6 @@ body .section {
         justify-content: space-between;
         display: flex;
         flex-direction: column;
-        box-sizing: border-box;
 
         background-image: 
             linear-gradient(to bottom, rgb(calc(256 / 4), 0, 0) 0%, transparent 5%),
@@ -166,20 +322,52 @@ body .section {
             url("../images/crowds/aleksandr-popov-R25Q-pAUeY8-unsplash.jpg");
 
 
-        .locations, .artists {
+        .lineup_container_outer {
             display: flex;
 
-            & > .elements {
-                flex: 1;
+            & > .lineup_container {
                 display: flex;
+                
+                margin: auto;
                 white-space: nowrap;
                 width: 100vw;
-                height: 30vh;
+                height: 100%;
                 background-color: #4CC9F080;
                 backdrop-filter: blur(8px);
     
                 overflow-x: scroll;
-                scrollbar-width: none;
+
+                gap: 16px;
+                padding: 16px;
+
+                container-type: size;
+
+                & > div {
+                    display: flex;
+                    border-radius: 16px;
+
+                    background-color: #4CC9F0;
+                    width: fit-content;
+                    height: 100%;
+                    clip-path: none;
+
+                    & > img {
+                        height: 100%;
+                        object-fit:cover;
+                        border-radius: inherit;
+                    }
+
+                    & > h2 {
+                        margin: 0;
+                        text-align: center;
+                        color:#3A0CA3;
+                    }
+
+/*                     debugging style, normally should be commented
+                    &:hover {
+                        background-color: red;
+                    } */
+                }
             }
 
             & > .title {
@@ -197,11 +385,18 @@ body .section {
         }
 
         .locations {
-            height: 50%;
+            height: calc(49% + 5%);
             flex-direction: column;
             
-            & > .elements {
+            & > .lineup_container {
                 width: 100%;
+                
+                & > div {
+                    flex-direction: column;
+                    & > img {
+                        width: calc(100cqh * 1.618);
+                    }
+                }
             }
 
             & > .title {
@@ -213,11 +408,18 @@ body .section {
         }
 
         .artists {
-            height: 40%;
+            height: calc(49% - 5%);
             flex-direction: column-reverse;
 
-            & > .elements {
+            & > .lineup_container {
                 width: 100%;
+                
+                & > div {
+                    flex-direction: column-reverse;
+                    & > img {
+                        width: 100cqh;
+                    }
+                }
             }
 
             & > .title {
@@ -230,10 +432,101 @@ body .section {
     }
 
     &.tickets {
+        display: flex;
+        flex-direction: column;
+
         background-image: 
             linear-gradient(to bottom, rgb(0, calc(256 / 2), 0) 0%, transparent 5%),
             linear-gradient(to bottom, transparent 95%, #6B2C47 100%),
             url("../images/crowds/antoine-j-A_0C42zmz1Q-unsplash-2.jpg");
+
+        & > .tickets_container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            flex: 1;
+
+            & > .ticket {
+                display: flex;
+                flex-direction: column;
+
+                margin: 0;
+                padding: 16px;
+
+                height: 80%;
+                width: 40%;
+                margin: auto;
+
+                backdrop-filter: blur(16px);
+                border-radius: 16px;
+
+                & > h3 {
+                    text-align: center;
+                    font-size: 2.5rem;
+
+                    margin: 0;
+                    padding: 0;
+                }
+
+                & > p {
+                    flex: 1;
+                    font-size: 2rem;
+                }
+
+                & > button {
+                    font-size: 3rem;
+                    font-weight: bold;
+                    border-radius: 16px;
+                }
+
+                animation: horizontal_shift 10s linear infinite;
+                background-size: 200% 200%;
+
+                &.early_bird {
+                    background-color: gold;
+                    background-image: linear-gradient(90deg,
+                     rgba( 0,0,0,0.125 ), transparent, 
+                     rgba( 0,0,0,0.125 ), transparent, 
+                     rgba( 0,0,0,0.125)
+                     );
+                    color: #3A0CA3;
+
+                    & > button {
+                        background-color: hsl(51, 100%, 75%);
+
+                        &:hover {
+                            background-color: hsl(51, 100%, 40%);
+                        }
+
+                        &:active{
+                            background-color: hsl(51, 100%, 30%);
+                        }
+                    }
+                }
+
+                &.at_the_door {
+                    background-color: #3A0CA3;
+                    background-image: linear-gradient(90deg,
+                     rgba( 0,0,0,0.125 ), transparent, 
+                     rgba( 0,0,0,0.125 ), transparent, 
+                     rgba( 0,0,0,0.125)
+                     );
+                    color: gold;
+
+                    & > button {
+                        background-color: hsl(258, 86%, 50%);
+
+                        &:hover {
+                            background-color: hsl(258, 86%, 40%);
+                        }
+                        
+                        &:active{
+                            background-color: hsl(258, 86%, 30%);
+                        }
+                    }
+                }
+            }
+        }
     }
 
     &.about {
@@ -258,7 +551,7 @@ span {
         background: linear-gradient(to right, #4CC9F0, #3A0CA3, #F72585, #4CC9F0);
         background-size: 200%;
         background-clip: text;
-        animation: gradient_shift 2s linear infinite;
+        animation: horizontal_shift 2s linear infinite;
     }
 
     &.old_price {
@@ -271,7 +564,7 @@ span {
     }
 }
 
-@keyframes gradient_shift {
+@keyframes horizontal_shift {
     to {
         background-position: -200% 0%;
     }
@@ -300,6 +593,15 @@ span {
 
 /*small devices (phone)*/
 @media (max-width: 768px) {
+    body > footer {
+        & > h2 {
+            font-size: 40cqh;
+            &.desktop, &.tablet {
+                display: none;
+            }
+        }
+    }
+
     body .navigation_bar {
         display: flex;
         
@@ -311,7 +613,6 @@ span {
 
         & > #navbar_button {
             display: flex;
-            box-sizing: border-box;
 
             width: 56px;
             height: 56px;
@@ -347,7 +648,7 @@ span {
                 align-items: center;
 
 
-                & > h1 {
+                & > h2 {
                     font-size: 3rem;
                     margin: 0;
                 }
@@ -373,7 +674,16 @@ span {
 }
 
 /*medium devices (tablet)*/
-@media (max-width: 1279px) and (min-width: 769px) {
+@media (max-width: 1280px) and (min-width: 768px) {
+    body > footer {
+        & > h2 {
+            font-size: 60cqh;
+            &.desktop, &.mobile {
+                display: none;
+            }
+        }
+    }
+    
     body .navigation_bar {
         align-items: center;
         justify-content: center;
@@ -387,7 +697,7 @@ span {
                 align-items: center;
 
 
-                & > h1 {
+                & > h2 {
                     font-size: 3rem;
                     margin: 0;
                 }
@@ -414,6 +724,15 @@ span {
 
 /*extra large devices (desktop)*/
 @media (min-width: 1280px) {
+    body > footer {
+        & > h2 {
+            font-size: 75cqh;
+            &.tablet, &.mobile {
+                display: none;
+            }
+        }
+    }
+
     body .section {
         &.hero {
             .logo_and_tagline {
@@ -422,7 +741,7 @@ span {
                 align-items: center;
 
 
-                & > h1 {
+                & > h2 {
                     font-size: 3rem;
                     margin: 0;
                 }
@@ -434,12 +753,12 @@ span {
                     flex-wrap: wrap;
 
                     & > h1 {
-                        font-size: 6rem;
+                        font-size: calc(6rem * 1.5);
                         margin: 0;
                     }
 
                     & > img {
-                        height: calc(6rem * 3);
+                        height: calc(18rem * 1.5);
                     }
                 }
             }
