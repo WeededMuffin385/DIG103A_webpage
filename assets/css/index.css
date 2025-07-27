@@ -217,6 +217,9 @@ body > footer {
 }
 
 body > .section {
+    display: flex;
+    flex-direction: column;
+
     width: 100vw;
     height: 100vh;
     background-size: cover;
@@ -312,15 +315,13 @@ body > .section {
     }
 
     &.lineup {
-        justify-content: space-between;
-        display: flex;
-        flex-direction: column;
-
         background-image: 
             linear-gradient(to bottom, rgb(calc(256 / 4), 0, 0) 0%, transparent 5%),
             linear-gradient(to bottom, transparent 95%, rgb(0, calc(256 / 2), 0) 100%),
             url("../images/crowds/aleksandr-popov-R25Q-pAUeY8-unsplash.jpg");
-
+            
+        justify-content: space-between;
+            
 
         .lineup_container_outer {
             display: flex;
@@ -432,9 +433,6 @@ body > .section {
     }
 
     &.tickets {
-        display: flex;
-        flex-direction: column;
-
         background-image: 
             linear-gradient(to bottom, rgb(0, calc(256 / 2), 0) 0%, transparent 5%),
             linear-gradient(to bottom, transparent 95%, #6B2C47 100%),
@@ -446,15 +444,17 @@ body > .section {
             flex-wrap: nowrap;
             flex: 1;
 
+            padding: 32px;
+
             & > .ticket {
+                container-type: size;
                 display: flex;
                 flex-direction: column;
 
-                margin: 0;
                 padding: 16px;
 
-                height: 80%;
-                width: 40%;
+                height: 100%;
+                width: 62cqh;
                 margin: auto;
 
                 backdrop-filter: blur(16px);
@@ -471,6 +471,7 @@ body > .section {
                 & > p {
                     flex: 1;
                     font-size: 2rem;
+                    text-align: justify;
                 }
 
                 & > button {
@@ -530,11 +531,66 @@ body > .section {
     }
 
     &.about {
-        
         background-image:
             linear-gradient(to bottom, #6B2C47 0%, transparent 5%),
             linear-gradient(to bottom, transparent 95%, #0A3641 100%),
             url("../images/crowds/pim-myten-m41k1lTzjVM-unsplash.jpg");
+
+        & > .container {
+            display: flex;
+            flex-direction: row;
+
+            padding-top: 32px;
+            padding-bottom: 32px;
+            padding-left: 128px;
+            padding-right: 128px;
+
+            width: 100%;
+            height: 100%;
+            
+            gap: 32px;
+
+            h3 {
+                text-align: center;
+                font-size: 2.5rem;
+
+                margin: 0;
+                padding: 0;
+                width: 100%;
+            }
+            
+            p {
+                margin: 0;
+                padding: 0;
+                font-size: 1.5rem;
+            }
+
+            .smaller, .bigger {
+                gap: 32px;
+                display: flex;
+                height: 100%;
+                width: 100%;
+            }
+
+            .smaller {
+                flex-shrink: 1.0;
+            }
+
+            .bigger {
+                flex-shrink: calc(1.0 / 1.618);
+            }
+
+            & > .smaller, & > .bigger {
+                flex-direction: column;
+                & > .smaller, & > .bigger {
+                    background-color: #4CC9F080;
+                    backdrop-filter: blur(16px);
+                    border-radius: 16px;
+                    padding: 16px;
+                    flex-direction: column;
+                }
+            }
+        }
     }
 
     &.merch {
@@ -542,6 +598,58 @@ body > .section {
             linear-gradient(to bottom, #0A3641 0%, transparent 5%),
             url("../images/crowds/amir-toossi-w9WO8txR7Uk-unsplash.jpg");
         background-position: center;
+
+        display: flex;
+        flex-direction: column;
+
+        & > .merch_container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            flex: 1;
+
+            gap: 32px;
+            padding-top: 32px;
+            padding-bottom: 32px;
+            padding-left: 128px;
+            padding-right: 128px;
+
+            & > .item {
+                container-type: size;
+                padding: 32px;
+
+                & > h3 {
+                    text-align: center;
+                    font-size: 2.5rem;
+
+                    margin: 0;
+                    padding: 0;
+                }
+
+                
+                & > p {
+                    flex: 1;
+                    font-size: 2rem;
+                    margin: 0;
+                    text-align: justify;
+                }
+
+                img {
+                    border-radius: 16px;
+                    width: 100cqw;
+                    height: 100cqw;
+                    object-fit: contain;
+                    background-color: white;
+                }
+
+                margin: auto;
+                width: 100%;
+                height: 100%;
+                background-color: #4CC9F080;
+                backdrop-filter: blur(16px);
+                border-radius: 16px;
+            }
+        }
     }
 }
 
