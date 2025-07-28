@@ -1,4 +1,8 @@
 div.clone {
+    position: absolute;
+    z-index: 5;
+    pointer-events: none;
+
     display: flex;
     border-radius: 16px;
 
