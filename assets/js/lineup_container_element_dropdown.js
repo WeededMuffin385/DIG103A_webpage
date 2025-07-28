@@ -3,8 +3,8 @@ const artists_lineup = document.getElementById("artists_lineup");
 
 const parent = document.getElementById('lineup');
 
-const set_hover_listener = (children) => {
-    Array.from(children).forEach(child => {
+const set_hover_listener = (container) => {
+    Array.from(container.children).forEach(child => {
         let clone = null;
         let size_multiplier = 0.4;
 
@@ -109,7 +109,7 @@ const set_hover_listener = (children) => {
             animate(child, clone);
         });
 
-        window.addEventListener('scroll', () => {
+        container.addEventListener('scroll', () => {
             update_position_and_size(child, clone);
         });
 
@@ -123,8 +123,9 @@ const set_hover_listener = (children) => {
                 clone = null;
             });
         });
+        
     })
 }
 
-set_hover_listener(locations_lineup.children);
-set_hover_listener(artists_lineup.children);
+set_hover_listener(locations_lineup);
+set_hover_listener(artists_lineup);
