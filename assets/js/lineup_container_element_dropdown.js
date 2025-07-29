@@ -116,7 +116,23 @@ const set_hover_listener = (container) => {
             update_position_and_size(child, clone);
 
             parent.appendChild(clone);
+            animate(child, clone);
+        });
 
+        child.addEventListener("click", () => {
+            try_delete_clone();
+
+            if (clone) {return}
+
+            console.log('coursor entered the element');
+            
+            clone = child.cloneNode(true);
+            clone.classList = child.parentElement.parentElement.classList;
+            clone.classList.add('clone');
+
+            update_position_and_size(child, clone);
+
+            parent.appendChild(clone);
             animate(child, clone);
         });
 
@@ -131,6 +147,17 @@ const set_hover_listener = (container) => {
             animate_backwards(child, clone).finished.then(() => {
                 try_delete_clone();
             });
+        });
+
+        document.addEventListener("click", (event) => {
+            if (!child.contains(event.target)) {
+                if (!clone) {return}
+                console.log('coursor left the element');
+                on_delete = true;
+                animate_backwards(child, clone).finished.then(() => {
+                    try_delete_clone();
+                });
+            }
         });
     })
 }
