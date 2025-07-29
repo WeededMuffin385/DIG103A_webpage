@@ -7,6 +7,7 @@ const set_hover_listener = (container) => {
     Array.from(container.children).forEach(child => {
         let clone = null;
         let size_multiplier = 0.4;
+        let on_delete = false;
 
         const update_position_and_size = (child, clone) => {
             const parent_rect = parent.getBoundingClientRect();
@@ -93,7 +94,17 @@ const set_hover_listener = (container) => {
             });
         }
 
+        const try_delete_clone = () => {
+            if (on_delete) {
+                parent.removeChild(clone);
+                clone = null;
+                on_delete = false;
+            }
+        }
+
         child.addEventListener('mouseenter', () => {
+            try_delete_clone();
+
             if (clone) {return}
 
             console.log('coursor entered the element');
@@ -116,14 +127,11 @@ const set_hover_listener = (container) => {
         child.addEventListener('mouseleave', () => {
             if (!clone) {return}
             console.log('coursor left the element');
-/*             parent.removeChild(clone);
-            clone = null; */
+            on_delete = true;
             animate_backwards(child, clone).finished.then(() => {
-                parent.removeChild(clone);
-                clone = null;
+                try_delete_clone();
             });
         });
-        
     })
 }
 

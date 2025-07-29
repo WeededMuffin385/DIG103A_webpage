@@ -363,11 +363,6 @@ body > .section {
                         text-align: center;
                         color:#3A0CA3;
                     }
-
-/*                     debugging style, normally should be commented
-                    &:hover {
-                        background-color: red;
-                    } */
                 }
             }
 
