@@ -1,0 +1,60 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    height: 100%;
+    background: url('../images/logo.svg'), #4CC9F0;
+    background-repeat: repeat;
+    background-size: 10vmin;
+
+
+    font-family: "Roboto", sans-serif;
+}
+
+body > .artist {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: -100vw;
+    top: -100vh;
+
+    object-fit: scale-down;
+    transition: none;
+
+    background-color:#F72585;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 35vmin;
+
+    & > img {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        height: auto;
+        width: 100%;
+        object-fit:cover;
+    }
+
+    & > h2 {
+        color: #4CC9F0;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    &.selected {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 5;
+
+        width: 80vmin;
+
+        transition: 
+        top 0.3s ease, 
+        left 0.3s ease, 
+        transform 0.3s ease,
+        width 0.3s ease, 
+        height 0.3s ease;
+    }
+}

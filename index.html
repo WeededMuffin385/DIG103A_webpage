@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="assets/css/index.css">
         <link rel="stylesheet" href="assets/css/lineup_container_element_dropdown.css">
-        <!-- <script src="js/jquery-3.7.1.min.js"></script> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </head>
     <body>
         <!-- navbar code was adapted from: https://www.w3schools.com/howto/howto_js_topnav_responsive.asp -->
@@ -111,19 +111,19 @@
         <div class="section lineup" id="lineup">
             <div class="lineup_container_outer locations">
                 <div class="lineup_container" id="locations_lineup">
-                    <div>
+                    <div class="container_element">
                         <img src="assets/images/nightclubs/61-the-family-brisbane-large.jpg" alt="">
                         <h2>
                             Dec 19th: The Family, Fortitude Valley
                         </h2>
                     </div>
-                    <div>
+                    <div class="container_element">
                         <img src="assets/images/nightclubs/sash-by-day-sydney.jpeg" alt="">
                         <h2>
                             Dec 20th: S.A.S.H., CBD
                         </h2>
                     </div>
-                    <div>
+                    <div class="container_element">
                         <img src="assets/images/nightclubs/chiladelphia-new-guernica-melbourne.jpg" alt="">
                         <h2>
                             Dec 21th: New Guernica, CBD
@@ -139,30 +139,30 @@
             
             <div class="lineup_container_outer artists">
                 <div class="lineup_container" id="artists_lineup">
-                    <div>
+                    <div class="container_element">
                         <img src="assets/images/artists/Oscar_Mulero.jpg" alt="">
                         <h2>Oscar Mulero</h2>
                     </div>
-                    <div>
+                    <div class="container_element">
                         <img src="assets/images/artists/richie-hawtin-press-photo.jpg" alt="">
                         <h2>Richie Hawtin</h2>
                     </div>
-                    <div>
+                    <div class="container_element">
                         <img src="assets/images/artists/Robert_Hood.jpg" alt="">
                         <h2>Robert Hood</h2>
                     </div>
-                    <div>
+                    <div class="container_element">
                         <img src="assets/images/artists/Robah_Whrume.jpg" alt="">
                         <h2>Robah Whurme</h2>
                     </div>
-                    <div>
+                    <div class="container_element">
                         <img src="assets/images/artists/Surgeon.jpg" alt="">
                         <h2>Surgeon</h2>
                     </div>
                 </div>
                                 
                 <div class="title">
-                    <h1>artists</h1>
+                    <h1><a href="artists.html">artists</a></h1>
                 </div>
             </div>
         </div>
@@ -243,10 +243,14 @@
         </footer>
 
         <script src="assets/js/timer.js"></script>
-        <script src="assets/js/toggle_navigation_bar.js"></script>
         <script src="assets/js/toggle_ticket_form.js"></script>
         <script src="assets/js/genres_list_autoscroll.js"></script>
         <script src="assets/js/lineup_container_element_dropdown.js"></script>
         <!-- <script src="assets/js/scroll_snap.js"></script> -->
+
+
+
+        <script src="assets/js/toggle_navigation_bar.js"></script>
+        <!-- <script src="assets/js/toggle_navigation_bar_jquery.js"></script> -->
     </body>
 </html>

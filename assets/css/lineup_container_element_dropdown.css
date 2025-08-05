@@ -6,7 +6,8 @@ div.clone {
     display: flex;
     border-radius: 16px;
 
-    background-color: #4CC9F0;
+    background-color: #F7258580;
+    backdrop-filter: blur(8px);
     width: fit-content;
     height: 100%;
     clip-path: none;
@@ -20,7 +21,7 @@ div.clone {
     & > h2 {
         margin: 0;
         text-align: center;
-        color:#3A0CA3;
+        color:#4CC9F0;
     }
 
     /* debugging style, normally should be comented */

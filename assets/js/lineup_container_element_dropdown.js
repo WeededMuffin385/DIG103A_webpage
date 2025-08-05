@@ -31,6 +31,8 @@ const set_hover_listener = (container) => {
         }
 
         const animate = (child, clone) => {
+            child.style.opacity = '0';
+
             const parent_rect = parent.getBoundingClientRect();
             const child_rect = child.getBoundingClientRect();
             const clone_rect = clone.getBoundingClientRect();
@@ -99,6 +101,7 @@ const set_hover_listener = (container) => {
                 parent.removeChild(clone);
                 clone = null;
                 on_delete = false;
+                child.style.opacity = '1';
             }
         }
 
