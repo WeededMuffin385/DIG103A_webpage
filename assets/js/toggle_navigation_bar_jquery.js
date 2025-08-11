@@ -1,21 +1,25 @@
-/// https://www.w3schools.com/jquery/jquery_syntax.asp
-/// "Tip: The jQuery team has also created an even shorter method for the document ready event:"
+const navbar = $("#navbar");
+const navbar_button = $("#navbar_button");
+const navbar_button_icon = $("#navbar_button_icon");
 
+function toggle_navigation_bar() {
+    console.log(`click registered: ${navbar.attr('class')}`);
 
-$(function(){
-    const navbar = $('#navbar');
-    const navbar_button = $('#navbar_button');
-    const navbar_button_icon = $('#navbar_button_icon');
+    navbar
 
-    $(navbar_button).click(function(){
-        console.log("hello jquery!");
+    if (navbar.hasClass("hide")) {
+        navbar.attr("class", "");
+        navbar_button_icon.attr("class", "fa fa-close");
+    } else {
+        navbar.attr("class").removeClass("show");
+        navbar_button_icon.attr("class", "fa fa-bars");
+    }
+}
 
-/*         if ((navbar.className === "navigation_bar") || (navbar.className === "navigation_bar hide")) {
-            navbar.className = "navigation_bar show";
-            navbar_button_icon.className = "fa fa-close";
-        } else {
-            navbar.className = "navigation_bar hide";
-            navbar_button_icon.className = "fa fa-bars";
-        } */
-    });
-}); 
+function toggle_navigation_bar_off() {
+    navbar.removeClass("show").addClass("hide");
+    navbar_button_icon.attr("class", "fa fa-bars");
+}
+
+navbar_button.on("click", toggle_navigation_bar);
+navbar.find("a").on("click", toggle_navigation_bar_off);

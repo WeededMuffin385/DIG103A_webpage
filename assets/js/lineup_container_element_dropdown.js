@@ -56,7 +56,7 @@ const set_hover_listener = (container) => {
                 height: clone_rect.height + 'px',
                 top: clone_top + 'px',
                 left: clone_left + 'px',
-                boxShadow: '0 0px 32px rgba(0,0,0,0.5)',
+                boxShadow: '0 0px 32px rgba(0,0,0,1)',
             }
             ], {
                 duration: 500,
@@ -81,7 +81,7 @@ const set_hover_listener = (container) => {
                 height: clone_rect.height + 'px',
                 top: clone_top + 'px',
                 left: clone_left + 'px',
-                boxShadow: '0 0px 32px rgba(0,0,0,0.5)',
+                boxShadow: '0 0px 32px rgba(0,0,0,1)',
             },
             {
                 width: child_rect.width + 'px',

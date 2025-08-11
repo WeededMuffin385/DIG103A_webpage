@@ -1,24 +1,21 @@
-const navbar = document.getElementById("navbar");
-const navbar_button = document.getElementById("navbar_button");
-const navbar_button_icon = document.getElementById("navbar_button_icon");
+const $navbar = $("#navbar");
+const $navbar_button = $("#navbar_button");
+const $navbar_button_icon = $("#navbar_button_icon");
 
-const toggle_navigation_bar = () => {
-    if ((navbar.className === "navigation_bar") || (navbar.className === "navigation_bar hide")) {
-        navbar.className = "navigation_bar show";
-        navbar_button_icon.className = "fa fa-close";
+function toggle_navigation_bar() {
+    if ($navbar.hasClass("hide")) {
+        $navbar.removeClass("hide").addClass("show");
+        $navbar_button_icon.attr("class", "fa fa-close");
     } else {
-        navbar.className = "navigation_bar hide";
-        navbar_button_icon.className = "fa fa-bars";
+        $navbar.removeClass("show").addClass("hide");
+        $navbar_button_icon.attr("class", "fa fa-bars");
     }
 }
 
-const toggle_navigation_bar_off = () => {
-    navbar.className = "navigation_bar hide";
-    navbar_button_icon.className = "fa fa-bars";
+function toggle_navigation_bar_off() {
+    $navbar.removeClass("show").addClass("hide");
+    $navbar_button_icon.attr("class", "fa fa-bars");
 }
 
-navbar_button.addEventListener("click", toggle_navigation_bar);
-
-[...navbar.getElementsByTagName("a")].forEach(child => {
-    child.addEventListener("click", toggle_navigation_bar_off);
-});
+$navbar_button.on("click", toggle_navigation_bar);
+$navbar.find("a").on("click", toggle_navigation_bar_off);
