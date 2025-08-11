@@ -27,12 +27,10 @@ Array.from(children).forEach((child, index) => {
             pos.y += speed;
             
             if (!reposition && (pos.x > get_width() || pos.y > get_height())) {
-                reposition = true
+                reposition = true;
                 navigator.locks.request('reposition', async lock => {
                     console.log('lock acquired');
-
-                    try_reposition();
-
+                    await try_reposition();
                     console.log('lock released');
                 });
             }
@@ -44,25 +42,35 @@ Array.from(children).forEach((child, index) => {
     }
 
     const try_reposition = async () => {
+        let attempts = 0;
+        const max_attempts = 16;
+
         let new_pos = {
             x: 0,
             y: 0,
         };
 
-        if (Math.random() > 0.5) {
-            new_pos.x = Math.random() * get_width() * 0.5;
-            new_pos.y = -child.offsetHeight;
-        } else {
-            new_pos.x = -child.offsetWidth;
-            new_pos.y = Math.random() * get_height() * 0.5;
+        while (attempts < max_attempts) {
+            
+            if (Math.random() > 0.5) {
+                const offset = -child.offsetHeight;
+                new_pos.x = offset * 2.0 + Math.random() * get_width() * 0.5;
+                new_pos.y = offset * 2.0;
+            } else {
+                const offset = -child.offsetWidth;
+                new_pos.x = offset * 2.0;
+                new_pos.y = offset * 2.0 + Math.random() * get_height() * 0.5;
+            }
+
+            if (!collisions(new_pos)) {break;}
+
+            attempts += 1;
+            console.log(`attempt: ${attempts}`);
+            await new Promise(resolve => setTimeout(resolve, 250));
         }
 
-        if (collisions(new_pos)) {
-            await setTimeout(try_reposition, 250);
-        } else {
-            pos = new_pos;
-            reposition = false;
-        }
+        pos = new_pos;
+        reposition = false;
     }
 
     const collision_virtual = (pos, value, other) => {
