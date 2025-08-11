@@ -39,6 +39,7 @@ button, a, input[type="submit"] {
     text-align: center;
 
     background-color: #f72685;
+    box-shadow: 0 0px 32px #4CC9F0;
     transition: background-color 0.3s ease;
 
     &:hover {
