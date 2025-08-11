@@ -19,7 +19,6 @@ const children = Array.from(
     })
 );
 
-
 let selected = null;
 
 const update = () => {
