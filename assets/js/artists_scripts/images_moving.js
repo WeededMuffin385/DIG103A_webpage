@@ -51,15 +51,14 @@ Array.from(children).forEach((child, index) => {
         };
 
         while (attempts < max_attempts) {
-            
             if (Math.random() > 0.5) {
                 const offset = -child.offsetHeight;
-                new_pos.x = offset * 2.0 + Math.random() * get_width() * 0.5;
-                new_pos.y = offset * 2.0;
+                new_pos.x = offset + Math.random() * get_width() * 0.5;
+                new_pos.y = offset;
             } else {
                 const offset = -child.offsetWidth;
-                new_pos.x = offset * 2.0;
-                new_pos.y = offset * 2.0 + Math.random() * get_height() * 0.5;
+                new_pos.x = offset;
+                new_pos.y = offset + Math.random() * get_height() * 0.5;
             }
 
             if (!collisions(new_pos)) {break;}

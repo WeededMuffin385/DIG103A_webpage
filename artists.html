@@ -4,8 +4,25 @@
         <meta charset="UTF-8">
         <title>Artists</title>
         <link rel="stylesheet" href="assets/css/artists.css">
+
+        <!-- preload images to fix issue with wrong sizing of artists elements at the start of the page 
+        https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/preload -->
+        <link rel="preload" href="assets/images/artists/extra/1.jpg" as="image">
+        <link rel="preload" href="assets/images/artists/extra/2.jpg" as="image">
+        <link rel="preload" href="assets/images/artists/extra/3.jpg" as="image">
+        <link rel="preload" href="assets/images/artists/extra/4.jpg" as="image">
+        <link rel="preload" href="assets/images/artists/extra/5.jpg" as="image">
+        <link rel="preload" href="assets/images/artists/extra/6.jpg" as="image">
+        <link rel="preload" href="assets/images/artists/extra/7.jpg" as="image">
+        <link rel="preload" href="assets/images/artists/extra/8.jpg" as="image">
+        <link rel="preload" href="assets/images/artists/extra/9.jpg" as="image">
+        <link rel="preload" href="assets/images/artists/extra/10.jpg" as="image">
+        <link rel="preload" href="assets/images/artists/extra/11.jpg" as="image">
+        <link rel="preload" href="assets/images/artists/extra/12.jpg" as="image">
     </head>
     <body>
+        <a href="index.html#lineup">return back to the main page</a>
+
         <div class="artist">
             <img src="assets/images/artists/extra/1.jpg">
             <h2>Jock Boyd (AU)</h2>
@@ -55,6 +72,7 @@
             <h2>Aforemention (FR)</h2>
         </div>
         
-        <script src="assets/js/artists_scripts/images_moving.js"></script>
+        <!-- <script src="assets/js/artists_scripts/images_moving.js"></script> -->
+         <script src="assets/js/artists_scripts/images_moving_singlethreaded.js"></script>
     </body>
 </html>

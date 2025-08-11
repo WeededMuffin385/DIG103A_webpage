@@ -11,6 +11,47 @@ html, body {
     font-family: "Roboto", sans-serif;
 }
 
+button, a, input[type="submit"] {
+    all: unset;
+    
+    z-index: 15;
+
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    font-size: 2rem;
+
+    position: fixed;
+    bottom: 0;
+    left: 50vw;
+
+    color: #4CC9F0;
+    font-weight: bold;
+    transform: translate(-50%, 0);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: auto;
+    padding: 16px;
+    width: 50vw;
+    min-width: fit-content;
+    text-align: center;
+
+    background-color: #f72685;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        cursor: pointer;
+        background-color: #B5179E;
+    }
+
+    &:active{
+        transition: none;
+        background-color: #B5179E;
+    }
+}
+
 body > .artist {
     display: flex;
     flex-direction: column;
