@@ -1,3 +1,22 @@
+/*
+    Color scheme (gradient from red to blue):
+
+    - #F72585 - Button
+    - #B5179E - Button Hover
+
+    - #7209B7
+    - #560BAD
+
+    - #480CA8
+    - #3A0CA3 - Background
+
+    - #3F37C9
+    - #4361EE
+
+    - #4895EF
+    - #4CC9F0 - Front Background/Font Color
+*/
+
 * {
     box-sizing: border-box;
 }
@@ -37,6 +56,165 @@ button, a, input[type="submit"] {
     }
 }
 
+body > .navigation_bar {
+    position: fixed;
+    z-index: 10;
+
+    width: 100vw;
+    height: 72px;
+
+    padding: 8px;
+    gap: 8px;
+
+    background-color: #4CC9F080;
+    backdrop-filter: blur(16px);
+
+    container-type: size;
+    display: flex;
+
+    & > button, & > a {
+        border-radius: 8px;
+        height: 100%;
+        width: calc(72px * 2.0);
+        font-size: 2rem;
+    }
+
+    & > #navbar_button {
+        background: none;
+        color: #F72585;
+    }
+}
+
+body > .ticket_form {
+    position: fixed;
+
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+
+    z-index: 50;
+
+    min-width: 30vw;
+    min-height: 50vh;
+
+    background-color: #F72585;
+
+    padding: 16px;
+    border-radius: 16px;
+
+    font-size: 2rem;
+
+    button, a, input[type="submit"] {
+        border: 4px solid #4CC9F0;
+        border-radius: 8px;
+        margin: auto;
+        text-align: center;
+    }
+
+    & > h3 {
+        text-align: center;
+        margin: 0;
+        margin-bottom: 16px;
+    }
+
+    & .name_container {
+        width: 100%;
+        display: flex;
+        gap: 16px;
+
+        & > div {
+            width: 50%;
+        }
+    }
+
+    & .credit_card_container {
+        width: 100%;
+        display: flex;
+        gap: 16px;
+        & > .number {
+            width: 50%;
+        }
+
+        & > .expires {
+            width: 35%;
+        }
+
+        & > .cvc {
+            width: 15%;
+        }
+    }
+
+    & .final_container {
+        display: flex;
+        gap: 16px;
+
+        & > #tickets_number {
+            width: 25%;
+            text-align: center;
+        }
+
+        & > button, & > a, & > input[type="submit"] {
+            width: 65%;
+        }
+    }
+
+    & input {
+        font-size: inherit;
+
+        width: 100%;
+        border-radius: 8px;
+        border: none;
+    }
+
+    &.buy {
+        display: none;
+    }
+
+    &.reserve {
+        display: none;
+    }
+}
+
+body > #buy_ticket_form {
+    position: fixed;
+    margin: auto;
+}
+
+body > #reserve_ticket_form {
+    position: fixed;
+    margin: auto;
+}
+
+body > footer {
+    height: 72px;
+    container-type: size;
+
+    display: flex;
+    justify-content: space-between;
+
+    background-color: #4CC9F0;
+
+    & > h2 {
+        color: #F72585;
+        margin: 0;
+
+        display: flex;
+        align-items: center;
+    }
+
+    & > .icons {
+        display: flex;
+
+        & > img {
+            height: 100cqh;
+            width: 100cqh;
+
+            /* color generation is done using https://codepen.io/sosuke/pen/Pjoqqp */
+            filter: invert(24%) sepia(64%) saturate(3331%) hue-rotate(316deg) brightness(99%) contrast(97%);
+        }
+    }
+}
+
 body > .section {
     display: flex;
     flex-direction: column;
@@ -47,6 +225,495 @@ body > .section {
     background-position: center;
 
     padding-top: 72px;
-
     position: relative;
+
+    & > h2 {
+        font-size: 3rem;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    &.hero {
+        background-image: 
+            linear-gradient(to bottom, transparent 95%, rgb(calc(256 / 4), 0, 0) 100%),
+            url("../images/crowds/raphael-schaller-zbUvPw1wUIw-unsplash.jpg");
+
+        background-position: bottom;
+        background-size: cover;
+
+        & > .logo_and_tagline {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #4CC9F0;
+
+            & > .logo {
+                display: flex;
+                justify-content: center;
+                align-items: baseline;
+                flex-wrap: wrap;
+
+                & > h1 {
+                    color: transparent;
+                    background: linear-gradient(to right, #3A0CA3 0%, #F72585 55%, #4CC9F0 100%);
+                    background-clip: text;
+                    text-align: center;
+                }
+            }
+
+            & > h2 {
+                text-align: center;
+            }
+        }
+
+        & > .bottom_container {
+            display: flex;
+            
+            justify-content: unset;
+
+            margin-bottom: 16px;
+            margin-top: auto;
+
+            & > .call_to_action, & > .list_of_genres {
+                background-color: #4CC9F080;
+                backdrop-filter: blur(16px);
+
+
+                padding: 16px;
+
+                & > h2, & > p {
+                    margin: 0;
+                    text-align: center;
+
+                    font-size: 3rem;
+                }
+
+                & > #countdown {
+                    display: inline-block;
+                    width: 10ch;
+                }
+            }
+
+            & > .call_to_action {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                border-bottom-right-radius: 16px;
+                border-top-right-radius: 16px;
+            }
+
+            & > .list_of_genres {
+                height: 25vh;
+
+                mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+                padding: 0;
+                border-bottom-left-radius: 16px;
+                border-top-left-radius: 16px;
+
+                overflow-y: scroll;
+                scrollbar-width: none;
+
+                & > h2 {
+                    text-align: center;
+                    background-color: aqua;
+                    margin: 8px;
+                    padding: 8px;
+                    border-radius: 16px;
+                }
+            }
+        }
+    }
+
+    &.lineup {
+        background-image: 
+            linear-gradient(to bottom, rgb(calc(256 / 4), 0, 0) 0%, transparent 5%),
+            linear-gradient(to bottom, transparent 95%, rgb(0, calc(256 / 2), 0) 100%),
+            url("../images/crowds/aleksandr-popov-R25Q-pAUeY8-unsplash.jpg");
+            
+        justify-content: space-between;
+            
+
+        & > .lineup_container_outer {
+            display: flex;
+
+            & > .lineup_container {
+                display: flex;
+                
+                margin: auto;
+                white-space: nowrap;
+                width: 100vw;
+                height: 100%;
+                background-color: #4CC9F080;
+                backdrop-filter: blur(8px);
+    
+                overflow-x: scroll;
+
+                gap: 16px;
+                padding: 16px;
+
+                container-type: size;
+
+                & > .container_element {
+                    display: flex;
+                    border-radius: 16px;
+
+                    backdrop-filter: blur(8px);
+                    background-color: #F7258580;
+                    width: fit-content;
+                    height: 100%;
+                    clip-path: none;
+
+                    & > img {
+                        height: 100%;
+                        object-fit:cover;
+                        border-radius: inherit;
+                    }
+
+                    & > h2 {
+                        margin: 0;
+                        text-align: center;
+                        color:#4CC9F0;
+                    }
+                }
+            }
+
+            & > .title {
+                display: flex;
+                justify-content: center;
+                
+                & > h1 {
+                    background-color: #4CC9F080;
+                    backdrop-filter: blur(8px);
+                    padding: 8px;
+                    margin: 0;
+
+                    & > a {
+                        all: unset;
+
+                        &:hover {
+                            all: unset;
+                            color: #F72585;
+                        }
+                    }
+                }
+            }
+            text-align: center;
+        }
+
+        & > .locations {
+            height: calc(49% + 5%);
+            flex-direction: column;
+            
+            & > .lineup_container {
+                width: 100%;
+                
+                & > .container_element {
+                    flex-direction: column;
+                    width: calc(100cqh * 1.618);
+                }
+            }
+
+            & > .title {
+                & > h1 {
+                    border-bottom-left-radius: 8px;
+                    border-bottom-right-radius: 8px;
+                }
+            }
+        }
+
+        & > .artists {
+            height: calc(49% - 5%);
+            flex-direction: column-reverse;
+
+            & > .lineup_container {
+                width: 100%;
+                
+                & > .container_element {
+                    flex-direction: column-reverse;
+                    width: 100cqh;
+                }
+            }
+
+            & > .title {
+                & > h1 {
+                    border-top-left-radius: 8px;
+                    border-top-right-radius: 8px;
+                }
+            }
+        }
+    }
+
+    &.tickets {
+        background-image: 
+            linear-gradient(to bottom, rgb(0, calc(256 / 2), 0) 0%, transparent 5%),
+            linear-gradient(to bottom, transparent 95%, #6B2C47 100%),
+            url("../images/crowds/antoine-j-A_0C42zmz1Q-unsplash-2.jpg");
+
+        & > .tickets_container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            flex: 1;
+
+            padding: 32px;
+            gap: 32px;
+
+            & > .ticket {
+                container-type: size;
+                display: flex;
+                flex-direction: column;
+
+                padding: 16px;
+
+                height: 100%;
+                width: 62cqh;
+                margin: auto;
+
+                backdrop-filter: blur(16px);
+                border-radius: 16px;
+
+                & > h3 {
+                    text-align: center;
+                    font-size: 2.5rem;
+
+                    margin: 0;
+                    padding: 0;
+                }
+
+                & > p {
+                    flex: 1;
+                    font-size: 2rem;
+                    text-align: justify;
+                    font-weight: bold;
+                }
+
+                & > button {
+                    font-size: 3rem;
+                    font-weight: bold;
+                    border-radius: 16px;
+                }
+
+                animation: horizontal_shift 10s linear infinite;
+                background-size: 200% 200%;
+
+                &.early_bird {       
+                    background: linear-gradient(to right, #3A0CA3, #F72585, #3A0CA3);
+                    background-size: 1000%;
+                    animation: horizontal_shift_long 120s linear infinite;
+
+                    color: #4CC9F0;
+
+                    & > button {
+                        background-color: hsl(194, 85%, 42%);
+
+                        &:hover {
+                            background-color: hsl(194, 85%, 32%);
+                        }
+
+                        &:active{
+                            background-color: hsl(194, 85%, 22%);
+                        }
+                    }
+                }
+
+                &.at_the_door {
+                    background: linear-gradient(to right, #3A0CA3, #4CC9F0, #3A0CA3);
+                    background-size: 1000%;
+                    animation: horizontal_shift_long 120s linear infinite;
+                    color: #F72585;
+
+                    & > button {
+                        background-color: hsl(333, 93%, 36%);
+
+                        &:hover {
+                            background-color: hsl(333, 93%, 26%);
+                        }
+                        
+                        &:active{
+                            background-color: hsl(333, 93%, 16%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.about {
+        background-image:
+            linear-gradient(to bottom, #6B2C47 0%, transparent 5%),
+            linear-gradient(to bottom, transparent 95%, #0A3641 100%),
+            url("../images/crowds/pim-myten-m41k1lTzjVM-unsplash.jpg");
+
+        & > .container {
+            display: flex;
+            flex-direction: row;
+
+            padding-top: 32px;
+            padding-bottom: 32px;
+            padding-left: 128px;
+            padding-right: 128px;
+
+            width: 100%;
+            height: 100%;
+            
+            gap: 32px;
+
+            h3 {
+                text-align: center;
+                font-size: 2.5rem;
+
+                margin: 0;
+                padding: 0;
+                width: 100%;
+            }
+            
+            p {
+                margin: 0;
+                padding: 0;
+                font-size: 1.5rem;
+            }
+
+            .smaller, .bigger {
+                gap: 32px;
+                display: flex;
+                height: 100%;
+                width: 100%;
+            }
+
+            .smaller {
+                flex-shrink: 1.0;
+            }
+
+            .bigger {
+                flex-shrink: calc(1.0 / 1.618);
+            }
+
+            & > .smaller, & > .bigger {
+                flex-direction: column;
+                & > .smaller, & > .bigger {
+                    background-color: #4CC9F080;
+                    backdrop-filter: blur(16px);
+                    border-radius: 16px;
+                    padding: 16px;
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+
+    &.merch {
+        background-image: 
+            linear-gradient(to bottom, #0A3641 0%, transparent 5%),
+            url("../images/crowds/amir-toossi-w9WO8txR7Uk-unsplash.jpg");
+        background-position: center;
+
+        display: flex;
+        flex-direction: column;
+
+        & > .merch_container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            flex: 1;
+
+            gap: 32px;
+            padding-top: 32px;
+            padding-bottom: 32px;
+            padding-left: 128px;
+            padding-right: 128px;
+
+            & > .item {
+                container-type: size;
+                padding: 32px;
+
+                & > h3 {
+                    text-align: center;
+                    font-size: 2.5rem;
+
+                    margin: 0;
+                    padding: 0;
+                }
+
+                
+                & > p {
+                    flex: 1;
+                    font-size: 2rem;
+                    margin: 0;
+                    text-align: justify;
+                }
+
+                & > img {
+                    border-radius: 16px;
+                    width: 100cqw;
+                    height: 100cqw;
+                    object-fit: contain;
+                    background-color: white;
+                }
+
+                margin: auto;
+                width: 100%;
+                height: 100%;
+                background-color: #4CC9F080;
+                backdrop-filter: blur(16px);
+                border-radius: 16px;
+            }
+        }
+    }
 }
+
+span {
+    &.animated_gradient {
+        color: transparent;
+        background: linear-gradient(to right, #4CC9F0, #3A0CA3, #F72585, #4CC9F0);
+        background-size: 200%;
+        background-clip: text;
+        animation: horizontal_shift 2s linear infinite;
+    }
+
+    &.old_price {
+        text-decoration: line-through;
+        color: #888;
+    }
+
+    &.new_price {
+        color: #4CC9F0;
+    }
+}
+
+@keyframes horizontal_shift_long {
+    to {
+        background-position: -2000% 0%;
+    }
+}
+
+@keyframes horizontal_shift {
+    to {
+        background-position: -200% 0%;
+    }
+}
+
+@keyframes navigation_bar_show_buttons {
+    from {
+        transform: translateX(-150%);
+    }
+
+    to {
+        transform: none;
+    }
+}
+
+@keyframes navigation_bar_hide {
+    from {
+        transform: none;
+    }
+
+    to {
+        transform: translateX(-150%);
+    }
+}
+
+
+
+
