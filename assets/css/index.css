@@ -185,36 +185,6 @@ body > #reserve_ticket_form {
     margin: auto;
 }
 
-body > footer {
-    height: 72px;
-    container-type: size;
-
-    display: flex;
-    justify-content: space-between;
-
-    background-color: #4CC9F0;
-
-    & > h2 {
-        color: #F72585;
-        margin: 0;
-
-        display: flex;
-        align-items: center;
-    }
-
-    & > .icons {
-        display: flex;
-
-        & > img {
-            height: 100cqh;
-            width: 100cqh;
-
-            /* color generation is done using https://codepen.io/sosuke/pen/Pjoqqp */
-            filter: invert(24%) sepia(64%) saturate(3331%) hue-rotate(316deg) brightness(99%) contrast(97%);
-        }
-    }
-}
-
 body > .section {
     display: flex;
     flex-direction: column;
@@ -283,9 +253,7 @@ body > .section {
                 padding: 16px;
 
                 & > h2, & > p {
-                    margin: 0;
                     text-align: center;
-
                     font-size: 3rem;
                 }
 
@@ -299,6 +267,10 @@ body > .section {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+
+                & > h2, & > p {
+                    margin: 0;
+                }
 
                 border-bottom-right-radius: 16px;
                 border-top-right-radius: 16px;
@@ -460,6 +432,8 @@ body > .section {
             padding: 32px;
             gap: 32px;
 
+            justify-content: space-evenly;
+
             & > .ticket {
                 container-type: size;
                 display: flex;
@@ -469,15 +443,16 @@ body > .section {
 
                 height: 100%;
                 width: 62cqh;
-                margin: auto;
 
                 backdrop-filter: blur(16px);
                 border-radius: 16px;
 
+                & > h3, & > button {
+                    font-size: 2.5rem;
+                }
+
                 & > h3 {
                     text-align: center;
-                    font-size: 2.5rem;
-
                     margin: 0;
                     padding: 0;
                 }
@@ -490,7 +465,6 @@ body > .section {
                 }
 
                 & > button {
-                    font-size: 3rem;
                     font-weight: bold;
                     border-radius: 16px;
                 }
@@ -546,14 +520,12 @@ body > .section {
             linear-gradient(to bottom, transparent 95%, #0A3641 100%),
             url("../images/crowds/pim-myten-m41k1lTzjVM-unsplash.jpg");
 
-        & > .container {
+        & > .about_container {
             display: flex;
             flex-direction: row;
+            justify-content: space-evenly;
 
-            padding-top: 32px;
-            padding-bottom: 32px;
-            padding-left: 128px;
-            padding-right: 128px;
+            padding: 32px;
 
             width: 100%;
             height: 100%;
@@ -580,6 +552,7 @@ body > .section {
                 display: flex;
                 height: 100%;
                 width: 100%;
+                margin: auto;
             }
 
             .smaller {
@@ -609,9 +582,6 @@ body > .section {
             url("../images/crowds/amir-toossi-w9WO8txR7Uk-unsplash.jpg");
         background-position: center;
 
-        display: flex;
-        flex-direction: column;
-
         & > .merch_container {
             display: flex;
             flex-direction: row;
@@ -619,38 +589,14 @@ body > .section {
             flex: 1;
 
             gap: 32px;
-            padding-top: 32px;
-            padding-bottom: 32px;
-            padding-left: 128px;
-            padding-right: 128px;
+            padding: 32px;
+            justify-content: space-evenly;
 
             & > .item {
+                display: flex;
+                flex-direction: column;
                 container-type: size;
-                padding: 32px;
-
-                & > h3 {
-                    text-align: center;
-                    font-size: 2.5rem;
-
-                    margin: 0;
-                    padding: 0;
-                }
-
-                
-                & > p {
-                    flex: 1;
-                    font-size: 2rem;
-                    margin: 0;
-                    text-align: justify;
-                }
-
-                & > img {
-                    border-radius: 16px;
-                    width: 100cqw;
-                    height: 100cqw;
-                    object-fit: contain;
-                    background-color: white;
-                }
+                padding: 16px;
 
                 margin: auto;
                 width: 100%;
@@ -658,7 +604,65 @@ body > .section {
                 background-color: #4CC9F080;
                 backdrop-filter: blur(16px);
                 border-radius: 16px;
+
+                & > .description {
+                    display: flex;
+                    flex-direction: column;
+
+                    & > h3 {
+                        text-align: center;
+                        font-size: 2.5rem;
+                        
+                        margin: 0;
+                        padding: 0;
+                    }
+                    
+                    & > p {
+                        flex: 1;
+                        font-size: 2rem;
+                        margin: 0;
+                        text-align: justify;
+                    }
+                }
+                
+                & > img {
+                    border-radius: 16px;
+                    width: 100cqw;
+                    height: 100cqw;
+                    object-fit: contain;
+                    background-color: white;
+                }
             }
+        }
+    }
+}
+
+body > footer {
+    height: 72px;
+    container-type: size;
+
+    display: flex;
+    justify-content: space-between;
+
+    background-color: #4CC9F0;
+
+    & > h2 {
+        color: #F72585;
+        margin: 0;
+
+        display: flex;
+        align-items: center;
+    }
+
+    & > .icons {
+        display: flex;
+
+        & > img {
+            height: 100cqh;
+            width: 100cqh;
+
+            /* color generation is done using https://codepen.io/sosuke/pen/Pjoqqp */
+            filter: invert(24%) sepia(64%) saturate(3331%) hue-rotate(316deg) brightness(99%) contrast(97%);
         }
     }
 }

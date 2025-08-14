@@ -14,19 +14,12 @@ html, body {
 button, a, input[type="submit"] {
     all: unset;
     
-    z-index: 3;
-
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
     font-size: 2rem;
 
-    position: fixed;
-    bottom: 0;
-    left: 50vw;
-
     color: #4CC9F0;
     font-weight: bold;
-    transform: translate(-50%, 0);
 
     display: flex;
     align-items: center;
@@ -34,8 +27,7 @@ button, a, input[type="submit"] {
 
     margin: auto;
     padding: 16px;
-    width: 50vw;
-    min-width: fit-content;
+    width: unset;
     text-align: center;
 
     background-color: #f72685;
@@ -51,6 +43,17 @@ button, a, input[type="submit"] {
         transition: none;
         background-color: #B5179E;
     }
+}
+
+body > .button_container {
+    width: 100%;
+    height: fit-content;
+
+    display: flex;
+
+    z-index: 3;
+    position: fixed;
+    bottom: 0;
 }
 
 body > .artist {

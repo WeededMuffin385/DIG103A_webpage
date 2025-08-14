@@ -1,14 +1,5 @@
 /*medium devices (tablet)*/
-@media (max-width: 1280px) and (min-width: 768px) {
-    body > footer {
-        & > h2 {
-            font-size: 60cqh;
-            &.desktop, &.mobile {
-                display: none;
-            }
-        }
-    }
-    
+@media (max-width: 1280px) and (min-width: 768px) {    
     body > .navigation_bar {
         align-items: center;
         justify-content: center;
@@ -28,12 +19,12 @@
 
                 & > .logo {
                     & > h1 {
-                        font-size: 6rem;
+                        font-size: calc(6rem * 0.9);
                         margin: 0;
                     }
 
                     & > img {
-                        height: calc(6rem * 3);
+                        height: calc(6rem * 3.0 * 0.9);
                     }
                 }
             }
@@ -41,7 +32,6 @@
             & > .bottom_container {
                 flex-direction: column-reverse;
                 height: 40vh;
-
                 gap: 16px;
 
                 & > .list_of_genres {
@@ -66,7 +56,75 @@
                 & > .ticket {
                     margin: unset;
                     width: 100%;
+
+
+                    & > h3, & > button {
+                        font-size: 2.0rem;
+                    }
+
+                    & > p {
+                        font-size: 1.5rem;
+                    }
                 }
+            }
+        }
+
+        &.about {
+            & > .about_container {
+                flex-direction: column;
+                .smaller, .bigger {
+                    flex-direction: column;
+                    flex-shrink: 1.0;
+                }
+
+                h3 {
+                    font-size: 2.0rem;
+                }
+                
+                p {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+
+        &.merch {
+            & > .merch_container {
+                display: flex;
+                flex-direction: column;
+
+
+                & > .item {
+                    flex-direction: row;
+                    gap: 16px;
+
+                    & > img {
+                        width: 100cqh;
+                        height: 100cqh;
+                    }
+
+                    &:nth-child(even) {
+                        flex-direction: row-reverse;
+                    }
+
+                    & > .description {
+                        h3 {
+                            font-size: 2.0rem;
+                        }
+                        
+                        p {
+                            font-size: 1.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    body > footer {
+        & > h2 {
+            font-size: 60cqh;
+            &.desktop, &.mobile {
+                display: none;
             }
         }
     }

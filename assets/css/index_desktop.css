@@ -25,12 +25,12 @@
 
                 & > .logo {
                     & > h1 {
-                        font-size: calc(6rem * 1.5);
+                        font-size: calc(6rem * 1.4);
                         margin: 0;
                     }
 
                     & > img {
-                        height: calc(18rem * 1.5);
+                        height: calc(6rem * 3.0 * 1.4);
                     }
                 }
             }

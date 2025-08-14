@@ -1,14 +1,5 @@
 /*small devices (phone)*/
 @media (max-width: 768px) {
-    body > footer {
-        & > h2 {
-            font-size: 40cqh;
-            &.desktop, &.tablet {
-                display: none;
-            }
-        }
-    }
-
     body > .navigation_bar {
         display: flex;
         
@@ -57,34 +48,121 @@
 
                 & > .logo {
                     & > h1 {
-                        font-size: 4rem;
+                        font-size: calc(6rem * (1.0 / 1.5));
                         margin: 0;
                     }
 
                     & > img {
-                        height: calc(6rem * 2);
+                        height: calc(6rem * 3.0 * (1.0 / 1.5));
                     }
                 }
             }
 
             & > .bottom_container {
                 flex-direction: column-reverse;
-                height: fit-content;
-
+                height: 40vh;
                 gap: 16px;
+
+                & > .call_to_action, & > .list_of_genres {
+                    & > h2, & > p {
+                        text-align: center;
+                        font-size: 2.0rem;
+                    }
+                }
 
                 & > .list_of_genres {
                     margin-left: none;
                     margin-right: none;
-                    height: 25%;
+                    height: 50%;
                 }
 
                 & > .call_to_action {
+                    height: 50%;
                     margin: 0;
                     border-radius: 16px;
                 }
             }
         }
+
+        &.tickets {
+            & > .tickets_container {
+                flex-direction: column;
+                gap: 32px;
+
+
+                & > .ticket {
+                    margin: unset;
+                    width: 100%;
+
+
+                    & > h3, & > button {
+                        font-size: 1.5rem;
+                    }
+
+                    & > p {
+                        font-size: 1.0rem;
+                    }
+                }
+            }
+        }
+
+        &.about {
+            & > .about_container {
+                flex-direction: column;
+                .smaller, .bigger {
+                    flex-direction: column;
+                    flex-shrink: 1.0;
+                }
+
+                h3 {
+                    font-size: 1.5rem;
+                }
+                
+                p {
+                    font-size: 1.0rem;
+                }
+            }
+        }
+
+        &.merch {
+            & > .merch_container {
+                display: flex;
+                flex-direction: column;
+
+
+                & > .item {
+                    flex-direction: row;
+                    gap: 16px;
+
+                    & > img {
+                        width: 100cqh;
+                        height: 100cqh;
+                    }
+
+                    &:nth-child(even) {
+                        flex-direction: row-reverse;
+                    }
+
+                    & > .description {
+                        h3 {
+                            font-size: 1.5rem;
+                        }
+                        
+                        p {
+                            font-size: 1.0rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    body > footer {
+        & > h2 {
+            font-size: 25cqh;
+            &.desktop, &.tablet {
+                display: none;
+            }
+        }
     }
 }
-
