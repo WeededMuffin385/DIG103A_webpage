@@ -10,6 +10,8 @@ const set_hover_listener = (container) => {
         let on_delete = false;
 
         const update_position_and_size = (child, clone) => {
+            if (!clone) {return;}
+
             const parent_rect = parent.getBoundingClientRect();
             const child_rect = child.getBoundingClientRect();
 

@@ -119,3 +119,31 @@ body > .artist {
         box-shadow: 0 0px 32px rgba(0, 0, 0, 1);
     }
 }
+
+
+/*small devices (phone)*/
+@media (max-width: 768px) {
+    body > .artist {
+        & > h2 {
+            font-size: 1.0rem;
+        }
+    }
+}
+
+/*medium devices (tablet)*/
+@media (max-width: 1280px) and (min-width: 768px) {    
+    body > .artist {
+        & > h2 {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+/*extra large devices (desktop)*/
+@media (min-width: 1280px) {
+    body > .artist {
+        & > h2 {
+            
+        }
+    }
+}

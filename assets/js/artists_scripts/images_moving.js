@@ -97,20 +97,42 @@ children.forEach(({child, pos}) => {
             child.classList.add('selected');
             child.removeAttribute('style');
             selected = child;
+
+            const others = children.filter(({child: other}) => other != child);
+
+            others.forEach(({child, pos}) => {
+                if (!child.classList.contains('selected')) {return;}
+
+                child.style.left = pos.x + 'px';
+                child.style.top = pos.y + 'px';
+                child.classList.remove('selected');
+                child.classList.add('unselected');
+
+                setTimeout(() => {
+                    child.classList.remove('selected');
+                    child.classList.remove('unselected');
+        
+                    if (selected == child) {
+                        selected = null;
+                    }
+                }, 300);
+            });
         }, 100);
     });
 
     document.addEventListener('click', (event) => {
-        if (selected && selected == child && event.target.closest('.artist') != child) {   
+        const element = event.target.closest('.artist');
+        const element_in_artists = children.some(({child}) => child == element);
+        if (selected && selected == child && element != child && !element_in_artists) {
             child.style.left = pos.x + 'px';
             child.style.top = pos.y + 'px';
             child.classList.remove('selected');
             child.classList.add('unselected');
-    
+
             setTimeout(() => {
                 child.classList.remove('selected');
                 child.classList.remove('unselected');
-    
+
                 if (selected == child) {
                     selected = null;
                 }
