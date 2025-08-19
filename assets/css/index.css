@@ -85,85 +85,89 @@ body > .navigation_bar {
     }
 }
 
-body > .ticket_form {
+body > .ticket_form_container {
+    width: 100vw;
+    height: 100vh;
     position: fixed;
-
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 50%;
-
     z-index: 50;
+    display: none;
 
-    min-width: 30vw;
-    min-height: 50vh;
+    justify-content: center;
+    align-items: center;
 
-    background-color: #F72585;
+    & > .ticket_form {
+        box-shadow: 0 0px 32px rgba(0, 0, 0, 1);
+        width: 85%;
+        height: fit-content;
 
-    padding: 16px;
-    border-radius: 16px;
+        background-color: #F72585;
 
-    font-size: 2rem;
+        padding: 16px;
+        border-radius: 16px;
 
-    button, a, input[type="submit"] {
-        border: 4px solid #4CC9F0;
-        border-radius: 8px;
-        margin: auto;
-        text-align: center;
-    }
+        font-size: 2rem;
 
-    & > h3 {
-        text-align: center;
-        margin: 0;
-        margin-bottom: 16px;
-    }
-
-    & .name_container {
-        width: 100%;
-        display: flex;
-        gap: 16px;
-
-        & > div {
-            width: 50%;
-        }
-    }
-
-    & .credit_card_container {
-        width: 100%;
-        display: flex;
-        gap: 16px;
-        & > .number {
-            width: 50%;
-        }
-
-        & > .expires {
-            width: 35%;
-        }
-
-        & > .cvc {
-            width: 15%;
-        }
-    }
-
-    & .final_container {
-        display: flex;
-        gap: 16px;
-
-        & > #tickets_number {
-            width: 25%;
+        button, a, input[type="submit"] {
+            border: 4px solid #4CC9F0;
+            border-radius: 8px;
+            margin: auto;
             text-align: center;
         }
 
-        & > button, & > a, & > input[type="submit"] {
-            width: 65%;
+        & > h3 {
+            text-align: center;
+            margin: 0;
+            margin-bottom: 16px;
         }
-    }
 
-    & input {
-        font-size: inherit;
+        & .name_container {
+            width: 100%;
+            display: flex;
+            gap: 16px;
 
-        width: 100%;
-        border-radius: 8px;
-        border: none;
+            & > div {
+                width: 50%;
+            }
+        }
+
+        & .credit_card_container {
+            width: 100%;
+            display: flex;
+            gap: 16px;
+            & > .number {
+                width: 50%;
+            }
+
+            & > .expires {
+                width: 35%;
+            }
+
+            & > .cvc {
+                width: 15%;
+            }
+        }
+
+        & .final_container {
+            display: flex;
+            gap: 16px;
+
+            & > #tickets_number {
+                width: 25%;
+                text-align: center;
+            }
+
+            & > button, & > a, & > input[type="submit"] {
+                width: 65%;
+            }
+        }
+
+        & input {
+            font-size: inherit;
+
+            width: 100%;
+            border-radius: 8px;
+            border: none;
+        }
     }
 
     &.buy {
@@ -173,16 +177,6 @@ body > .ticket_form {
     &.reserve {
         display: none;
     }
-}
-
-body > #buy_ticket_form {
-    position: fixed;
-    margin: auto;
-}
-
-body > #reserve_ticket_form {
-    position: fixed;
-    margin: auto;
 }
 
 body > .section {
@@ -289,7 +283,7 @@ body > .section {
 
                 & > h2 {
                     text-align: center;
-                    background-color: aqua;
+                    /* background-color: aqua; */
                     margin: 8px;
                     padding: 8px;
                     border-radius: 16px;

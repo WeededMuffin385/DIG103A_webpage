@@ -121,7 +121,7 @@ body > .artist {
 }
 
 
-/*small devices (phone)*/
+/* small devices (phone) */
 @media (max-width: 768px) {
     body > .artist {
         & > h2 {
@@ -130,7 +130,7 @@ body > .artist {
     }
 }
 
-/*medium devices (tablet)*/
+/* medium devices (tablet) */
 @media (max-width: 1280px) and (min-width: 768px) {    
     body > .artist {
         & > h2 {
@@ -139,11 +139,11 @@ body > .artist {
     }
 }
 
-/*extra large devices (desktop)*/
-@media (min-width: 1280px) {
+/* extra large devices (desktop) */
+/* @media (min-width: 1280px) {
     body > .artist {
         & > h2 {
             
         }
     }
-}
+} */

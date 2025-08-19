@@ -40,3 +40,14 @@ div.clone {
     animation: grow_size 0.6s ease-out forwards, box-shadow 0.6s ease;
     box-shadow: 0 0px 32px rgba(0, 0, 0, 1);
 }
+
+
+
+/*small devices (phone)*/
+@media (max-width: 768px) {
+    div.clone {
+        & > h2 {
+            font-size: 1.25rem;
+        }
+    }
+}

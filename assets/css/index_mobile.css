@@ -38,6 +38,33 @@
         }
     }
 
+    body > .ticket_form_container {
+        & > .ticket_form {
+            & .name_container {
+                display: block;
+
+                & > div {
+                    width: 100%;
+                }
+            }
+
+            & .credit_card_container {
+                display: block;
+                & > .number {
+                    width: 100%;
+                }
+
+                & > .expires {
+                    width: 35%;
+                }
+
+                & > .cvc {
+                    width: 20%;
+                }
+            }
+        }
+    }
+
     body > .section {
         &.hero {
             & > .logo_and_tagline {
@@ -84,6 +111,22 @@
             }
         }
 
+        &.lineup {
+            & > .locations {
+                height: calc((100cqw + 64px) / 1.618 + 30px);
+            }
+
+            & > .lineup_container_outer {
+                & > .lineup_container {
+                    & > .container_element {
+                        & > h2 {
+                            font-size: 1.25rem;
+                        }
+                    }
+                }
+            }
+        }
+
         &.tickets {
             & > .tickets_container {
                 flex-direction: column;
@@ -107,6 +150,7 @@
         }
 
         &.about {
+            height: fit-content;
             & > .about_container {
                 flex-direction: column;
                 .smaller, .bigger {

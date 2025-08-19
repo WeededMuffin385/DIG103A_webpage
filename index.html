@@ -31,60 +31,65 @@
             <a href="artists.html">Artists</a>
         </div>
 
-        <div class="ticket_form buy" id="buy_ticket_form">
-            <h3>Buy Tickets Now</h3>
-            <form action="buy_tickets" autocomplete="on">
-                <div class="name_container">
-                    <div>
-                        <label for="fname">first name</label>
-                        <input type="text" name="fname" id="fname">
+        <div class="ticket_form_container buy" id="buy_ticket_form">
+            <div class="ticket_form">
+                <h3>Buy Tickets Now</h3>
+                <form action="buy_tickets" autocomplete="on">
+                    <div class="name_container">
+                        <div>
+                            <label for="fname">first name</label>
+                            <input type="text" name="fname" id="fname">
+                        </div>
+
+                        <div>
+                            <label for="fname">last name</label>
+                            <input type="text" name="lname" id="lname">
+                        </div>
                     </div>
 
-                    <div>
-                        <label for="fname">last name</label>
-                        <input type="text" name="lname" id="lname">
+                    <label for="tickets_form_email">email</label>
+                    <input type="email" name="email" id="tickets_form_email">
+
+
+                    <div class="credit_card_container">
+                        <div class="number">
+                            <label for="credit_card_number">credit card number</label>
+                            <input type="text" name="credit_card" id="credit_card_number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx" >
+                        </div>
+                        <div class="expires">
+                            <label for="credit_card_expires">expires</label>
+                            <input type="text" name="credit_card_expires" id="credit_card_expires" placeholder="mm/yy">
+                        </div>
+                        <div class="cvc">
+                            <label for="credit_card_cvc">cvc</label>
+                            <input type="text" name="credit_card_cvc" id="credit_card_cvc" placeholder="xxx">
+                        </div>
                     </div>
-                </div>
 
-                <label for="tickets_form_email">email</label>
-                <input type="email" name="email" id="tickets_form_email">
+                    <label for="address_1">address line 1</label>
+                    <input type="text" name="address_1" id="address_1">
 
+                    <label for="address_2">address line 2</label>
+                    <input type="text" name="address_2" id="address_2">
 
-                <div class="credit_card_container">
-                    <div class="number">
-                        <label for="credit_card_number">credit card number</label>
-                        <input type="text" name="credit_card" id="credit_card_number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx" >
+                    <br>
+                    <br>
+                    <div class="final_container">
+                        <input type="number" name="tickets_number" id="tickets_number" value="1">
+                        <input type="submit" value="proceed">
+
+                        <button type="button" onclick="toggle_ticket_form_buy()">cancel</button>
                     </div>
-                    <div class="expires">
-                        <label for="credit_card_expires">expires</label>
-                        <input type="text" name="credit_card_expires" id="credit_card_expires" placeholder="mm/yy">
-                    </div>
-                    <div class="cvc">
-                        <label for="credit_card_cvc">cvc</label>
-                        <input type="text" name="credit_card_cvc" id="credit_card_cvc" placeholder="xxx">
-                    </div>
-                </div>
-
-                <label for="address_1">address line 1</label>
-                <input type="text" name="address_1" id="address_1">
-
-                <label for="address_2">address line 2</label>
-                <input type="text" name="address_2" id="address_2">
-
-                <br>
-                <br>
-                <div class="final_container">
-                    <input type="number" name="tickets_number" id="tickets_number" value="1">
-                    <input type="submit" value="proceed">
-
-                    <button type="button" onclick="toggle_ticket_form_buy()">cancel</button>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
-        <div class="ticket_form reserve" id="reserve_ticket_form">
-            <h3>Buy Tickets Now</h3>
-        </div>
 
+        <div class="ticket_form_container reserve">
+            <div class="ticket_form" id="reserve_ticket_form">
+                <h3>Buy Tickets Now</h3>
+            </div>
+        </div>
+            
         <div class="section hero" id="hero">
             <div class="logo_and_tagline">
                 <div class="logo">

@@ -70,6 +70,7 @@
         }
 
         &.about {
+            height: fit-content;
             & > .about_container {
                 flex-direction: column;
                 .smaller, .bigger {
