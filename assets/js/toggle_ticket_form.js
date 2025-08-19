@@ -1,11 +1,18 @@
 const buy_ticket_form = document.getElementById("buy_ticket_form");
+const reserve_ticket_form = document.getElementById("reserve_ticket_form");
 
-function toggle_ticket_form_buy () {
-    console.log("pressed the button")
-
-    if (buy_ticket_form.style.display === 'flex') {
-        buy_ticket_form.style.display = 'none';
+const toggle_form_visibility = (form) => {
+    if (form.style.display === 'flex') {
+        form.style.display = 'none';
     } else {
-        buy_ticket_form.style.display = 'flex';
+        form.style.display = 'flex';
     }
+}
+
+function toggle_buy_ticket_form() {
+    toggle_form_visibility(buy_ticket_form);
+}
+
+function toggle_reserve_ticket_form() {
+    toggle_form_visibility(reserve_ticket_form);
 }

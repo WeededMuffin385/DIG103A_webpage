@@ -1,6 +1,5 @@
 const locations_lineup = document.getElementById("locations_lineup");
 const artists_lineup = document.getElementById("artists_lineup");
-
 const parent = document.getElementById('lineup');
 
 const set_hover_listener = (container) => {

@@ -112,6 +112,13 @@ body > .ticket_form_container {
             border-radius: 8px;
             margin: auto;
             text-align: center;
+
+            &:hover {
+                background-color: hsl(333, 93%, 36%);
+            }
+            &:active {
+                background-color: hsl(333, 93%, 21%);
+            }
         }
 
         & > h3 {
@@ -176,6 +183,10 @@ body > .ticket_form_container {
 
     &.reserve {
         display: none;
+
+        & > .ticket_form {
+            width: 60%;
+        }
     }
 }
 

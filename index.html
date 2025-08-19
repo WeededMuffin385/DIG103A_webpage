@@ -76,17 +76,26 @@
                     <br>
                     <div class="final_container">
                         <input type="number" name="tickets_number" id="tickets_number" value="1">
-                        <input type="submit" value="proceed">
+                        <input type="submit" value="proceed" onclick="toggle_buy_ticket_form()">
 
-                        <button type="button" onclick="toggle_ticket_form_buy()">cancel</button>
+                        <button type="button" onclick="toggle_buy_ticket_form()">cancel</button>
                     </div>
                 </form>
             </div>
         </div>
 
-        <div class="ticket_form_container reserve">
-            <div class="ticket_form" id="reserve_ticket_form">
-                <h3>Buy Tickets Now</h3>
+        <div class="ticket_form_container reserve" id="reserve_ticket_form">
+            <div class="ticket_form">
+                <h3>Reserve Tickets</h3>
+                <form action="reserve_tickets" autocomplete="on">
+                    <label for="reserve_form_email">email</label>
+                    <input type="email" name="email" id="reserve_form_email">
+                    
+                    <br>
+                    <br>
+                    
+                    <input type="submit" value="reserve tickets" onclick="toggle_reserve_ticket_form()">
+                </form>
             </div>
         </div>
             
@@ -184,12 +193,12 @@
                 <div class="ticket early_bird" id="ticket_early_bird">
                     <h3>Early Bird Ticket</h3>
                     <p>Secure your spot at the best price! Early Bird Tickets offer full access to all performances, exclusive merch discounts, and priority entry — all before the crowd catches on. Limited quantity available, so don’t wait!</p>
-                    <button onclick="toggle_ticket_form_buy()">BUY NOW</button>
+                    <button onclick="toggle_buy_ticket_form()">BUY NOW</button>
                 </div>
                 <div class="ticket at_the_door" id="ticket_at_the_door">
                     <h3>Ticket At The Door</h3>
                     <p>Missed the early bird? No worries, you can still grab a ticket at the door. Standard entry gives you full access to the event, but availability is not guaranteed. Stay in the loop for door prices and timing updates.</p>
-                    <button>KEEP IN TOUCH</button>
+                    <button onclick="toggle_reserve_ticket_form()">RESERVE TICKETS</button>
                 </div>
             </div>
         </div>
@@ -263,11 +272,10 @@
         <script src="assets/js/toggle_ticket_form.js"></script>
         <script src="assets/js/genres_list_autoscroll.js"></script>
         <script src="assets/js/lineup_container_element_dropdown.js"></script>
+        
+        <!-- the script is commented because it acts annoying -->
         <!-- <script src="assets/js/scroll_snap.js"></script> -->
 
-
-
-        <script src="assets/js/toggle_navigation_bar.js"></script>
-        <!-- <script src="assets/js/toggle_navigation_bar_jquery.js"></script> -->
+        <script src="assets/js/toggle_navigation_bar.js"></script>\
     </body>
 </html>
